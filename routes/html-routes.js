@@ -1,11 +1,14 @@
-var express = require("express");
+var path = require("path");
 
-var router = express.Router();
+// Routes
+// =============================================================
+module.exports = function(app) {
 
-// Import the model (dog.js) to use its database functions.
-var dog = require("../models/dog.js");
-
-
-router.get("/", function(req, res) {
+app.get("/", function(req, res) {
     res.render("index")
 })
+
+
+
+
+}
