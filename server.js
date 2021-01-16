@@ -27,13 +27,12 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-var routes = require("./controllers/dogs_controller.js");
-
-app.use(routes);
+// var routes = require("./controllers/dogs_controller.js");
+// app.use(routes);
 
 // Routes
 // =============================================================
-// require("./routes/html-routes.js")(app);
+require("./routes/html-routes.js")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
