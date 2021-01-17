@@ -6,40 +6,21 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
         },
         //adding column for owner
-        owner_name: {
-            type: DataTypes.STRING,
+        owner_id: {
+            type: DataTypes.INTEGER,
             allowNull: false
         },
 
-        //adding boolean columns for walk times
-        morning_walk: {
+        //adding column for medicine information
+        meds: {
+            type: DataTypes.string
+        },
+
+        //adding column for shot records
+        shots: {
             type: DataTypes.BOOLEAN,
-            allowNull: false
-        },
-
-        noon_walk: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false
-        },
-
-        late_walk: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false
-        },
-
-        //adding column for medication
-
-        medication: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-
-        //adding column for extra notes
-        notes: {
-            type: DataTypes.STRING,
             allowNull: false
         }
-
     })
     return Dog
 }
