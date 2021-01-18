@@ -3,13 +3,7 @@ var db = require("../models");
 
 // Routes
 // =============================================================
-module.exports = function(app) {
-
-app.get("/api/")
-
-
-
-
+module.exports = function (app) {
 
 
 
