@@ -1,4 +1,4 @@
-use doggydaycare_DB;
+use doggydaycare_db;
 
 insert into dog (dog_name, owner_id, meds, shots)
 values ("Spot", 2, "none", true);
