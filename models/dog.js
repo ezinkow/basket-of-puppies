@@ -13,7 +13,7 @@ module.exports = function (sequelize, DataTypes) {
 
     //adding column for medicine information
     meds: {
-      type: DataTypes.string,
+      type: DataTypes.STRING,
     },
 
     //adding column for shot records
