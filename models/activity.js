@@ -34,5 +34,16 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: true,
     },
   });
+
+  Activity.associate = function(models) {
+    // We're saying that an Activity should belong to an Dog
+    // An Activity can't be added without a Dog due to the foreign key constraint
+    Activity.belongsTo(models.Dog, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+
   return Activity;
 };

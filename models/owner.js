@@ -7,7 +7,11 @@ module.exports = function (sequelize, DataTypes) {
     },
 
     //creating column for phone number
-    phone: {
+    owner_phone: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    owner_email: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -17,6 +21,15 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true,
     },
+
+    createdAt: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW
+    }
   });
   return Owner;
 };
