@@ -5,7 +5,7 @@ var path = require("path");
 module.exports = function (app) {
 
     app.get("/", function (req, res) {
-        res.render("login")
+        res.render("index")
     })
     app.get("/login", function (req, res) {
         res.render("login")
@@ -13,6 +13,10 @@ module.exports = function (app) {
 
     app.get("/adddog", function (req, res) {
         res.render("adddog")
+    })
+  
+    app.get("/addowner", function (req, res) {
+        res.render("addowner")
     })
 
     app.get("/daycare", function (req, res) {
