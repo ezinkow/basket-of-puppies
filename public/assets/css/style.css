@@ -1,7 +1,21 @@
-img {
-    width: 200px;
-    height: 200px;
-    
+body {
+    background-image: url('basketpuppy1.jpg');
+    background-size: 100%;
 }
 
+img {
+    width: 150px;
+    height: 220px;
+    border:1px solid lightgray;
+
+}
+
+
+li {
+   font-size: small;
+}
+
+#close {
+    width: 322px;
+}
 
