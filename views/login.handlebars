@@ -1,0 +1,59 @@
+{{!-- login screen needs two updates. #1 passport or decrypt for authentication and 
+# The passport or decrypt library will need handlebars and a js file --}}
+<form>
+  <div class="container" id="contain">
+  <div class="form-group">
+    <img src="assets/img/basketpuppy1.jpg" class="puppy-logo">
+    <h1>Login Information</h1>
+    <label for="userinput">Username</label>
+    <input type="text" class="form-control" id="userinput" aria-describedby="emailHelp" placeholder="Enter Username">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+  <button type="submit" class="btn btn-primary">Sign In</button>
+  </div>
+</form>
+
+<style>
+  #contain {
+    position: absolute;
+    margin-left: 750px;
+    margin-top: 150px;
+    padding-top: 35px;
+    padding-bottom: 15%;
+    text-align: left;
+    width: 380px;
+    height: 340px;
+    box-sizing: border-box;
+    background: rgba(0,0,0,.5);
+    color: tan;
+  }
+
+  .puppy-logo{
+    width: 105px;
+    height: 105px;
+    border-radius: 50%;
+    position: absolute;
+    top: -60px;
+    right: 38%;
+    left: calc(50 - 50px);
+
+  }
+
+ input[type="text"], input[type="password"]
+  {
+    border: none;
+    border-bottom: 1px solid tan;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color:tan;
+    font-size: 16px;
+  }
+
+  body{
+      background-image: url("/assets/img/basketlogo1.png");
+  }
+</style>
