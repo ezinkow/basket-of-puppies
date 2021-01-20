@@ -15,6 +15,7 @@ module.exports = function (app) {
     app.post("/api/dogs", function (req, res) {
         db.Dog.create({
             dog_name: req.body.dog_name,
+            // owner_id: req.body.owner_id,
             shots: req.body.shots,
             meds: req.body.meds
         })

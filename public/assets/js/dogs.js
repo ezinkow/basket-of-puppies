@@ -7,6 +7,10 @@ $(document).ready(function() {
         event.preventDefault();
         location.href = "/addowner"
     })
+    $(".viewAllOwners").on("click", function (event) {
+        event.preventDefault();
+        location.href = "/owners"
+    })
 
     
     

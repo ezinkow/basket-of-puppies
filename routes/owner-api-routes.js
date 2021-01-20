@@ -9,7 +9,9 @@ module.exports = function (app) {
         db.Owner.findAll({})
             .then(function (dbOwner) {
                 res.json(dbOwner)
+                console.log(dbOwner)
             })
+            
     })
 
     app.post("/api/owners", function (req, res) {
@@ -21,6 +23,17 @@ module.exports = function (app) {
         })
             .then(function (dbOwner) {
                 res.json(dbOwner)
+            })
+    })
+
+    app.get("/owners", function (req, res) {
+        db.Owner.findAll({})
+            .then(function (data) {
+                var hbsObject = {
+                    owners: data
+                }
+                console.log(hbsObject)
+                res.render("owners", hbsObject)
             })
     })
 
