@@ -68,6 +68,15 @@ text-anchor: middle;
 -webkit-user-select: none;
 -moz-user-select: none;
 user-select: none;
+    background-image: url('basketpuppy1.jpg');
+    background-size: 100%;
+}
+
+img {
+    width: 150px;
+    height: 220px;
+    border:1px solid lightgray;
+
 }
 
 .add-btn {
@@ -82,7 +91,7 @@ width: 40%;
   font-size: 3.5rem;
 }
 }
-=======
+
 li {
  font-size: small;
 }
@@ -90,3 +99,12 @@ li {
 #close {
   width: 322px;
 }
+
+li {
+   font-size: small;
+}
+
+#close {
+    width: 322px;
+}
+
