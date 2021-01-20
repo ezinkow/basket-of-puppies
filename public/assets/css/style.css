@@ -1,5 +1,5 @@
 body {
-  background-image: url('basketpuppy1.jpg');
+  /* background-image: url('basketpuppy1.jpg'); */
   background-size: 100%;
 }
 
@@ -68,7 +68,7 @@ text-anchor: middle;
 -webkit-user-select: none;
 -moz-user-select: none;
 user-select: none;
-    background-image: url('basketpuppy1.jpg');
+    /* background-image: url('basketpuppy1.jpg'); */
     background-size: 100%;
 }
 
