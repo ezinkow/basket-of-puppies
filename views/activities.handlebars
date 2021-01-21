@@ -1,0 +1,44 @@
+<div class="grid-container">
+    <div class="grid-item">Dog Name</div>
+    <div class="grid-item">Owner Name</div>
+    <div class="grid-item">Check in</div>
+    <div class="grid-item">Morning Walk</div>
+    <div class="grid-item">Noon Walk</div>
+    <div class="grid-item">Late Walk</div>
+    <div class="grid-item">Meds?</div>
+    <div class="grid-item">Notes</div>
+    <div class="grid-item">Check out</div>
+
+    {{#each dogs}}
+    <div class="grid-item">{{dog_name}}</div>
+    <div class="grid-item">{{owner_name}}</div>
+    <div class="grid-item">Check in</div>
+    <div class="grid-item">{{morning_walk}}</div>
+    <div class="grid-item">{{midday_walk}}</div>
+    <div class="grid-item">{{late_walk}}</div>
+    <div class="grid-item">{{med_info}}</div>
+    <div class="grid-item">{{notes}}</div>
+    <div class="grid-item">Check out</div>
+    {{/each}}
+</div>
+
+{{#each dogs}}
+{{dog_name}}
+{{/each}}
+
+<style>
+    .grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto auto auto auto auto auto auto;
+        background-color: #2196F3;
+        padding: 10px;
+    }
+
+    .grid-item {
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        padding: 20px;
+        font-size: 20px;
+        text-align: center;
+    }
+</style>

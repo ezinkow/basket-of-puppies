@@ -1,5 +1,9 @@
 <ul>
 {{#each owners}}
-{{owner_name}}
+<p>Owner Name: {{owner_name}}</p>
+<p>Owner phone: {{owner_phone}}</p>
+{{else}}
+<p>no owners available</p>
+
 {{/each}}
 </ul>
