@@ -23,7 +23,12 @@
 
 </header>
 
+
+
 <div class="container">
+
+    <h2 id="date"></h2>
+    
     <div class="row">
         <div class="col-4">
             <button type="button" class="btn btn-primary btn-lg add-btn btn-block quickCheckin">Quick Check-in</button>
@@ -37,13 +42,18 @@
                 ONE Dog</button>
             <div class="row">
                 <div class="col-6">
-                    <button type="button" class="btn btn-danger add-btn btn-block viewAllDogs">View All
-                        Dogs</button>
+                    <button type="button" class="btn btn-danger add-btn btn-block viewAllDogs">View All Dogs</button>
                 </div>
                 <div class="col-6">
                     <button type="button" class="btn btn-primary add-btn btn-block viewAllOwners">View All
                         Owners</button>
                 </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div id="weatherDisplay">
+                <button type="button" class="btn btn-success btn-lg btn-block weatherBtn">View Current Weather</button>
+                <h3 id="weather"></h3>
             </div>
         </div>
     </div>
