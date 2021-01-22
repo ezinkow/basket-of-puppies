@@ -28,33 +28,87 @@
 <div class="container">
 
     <h2 id="date"></h2>
-    
+
     <div class="row">
         <div class="col-4">
-            <button type="button" class="btn btn-primary btn-lg add-btn btn-block quickCheckin">Quick Check-in</button>
+            <button type="button" class="btn btn-primary btn-lg add-btn btn-block quickCheckIn">Quick Check-in</button>
             <button type="button" class="btn btn-warning btn-lg add-btn btn-block addNewOwner">Add New Owner</button>
             <button type="button" class="btn btn-info btn-lg add-btn btn-block addNewDog">Add New Dog</button>
         </div>
         <div class="col-4">
             <button type="button" class="btn btn-success btn-lg add-btn btn-block updateAllDogsActivity">Update
-                Activities for ALL Dogs</button>
-            <button type="button" class="btn btn-dark btn-lg add-btn btn-block updateDogActivity">Update Activities for
-                ONE Dog</button>
-            <div class="row">
-                <div class="col-6">
-                    <button type="button" class="btn btn-danger add-btn btn-block viewAllDogs">View All Dogs</button>
-                </div>
-                <div class="col-6">
-                    <button type="button" class="btn btn-primary add-btn btn-block viewAllOwners">View All
-                        Owners</button>
-                </div>
-            </div>
+                Daily Activities</button>
+            <button type="button" class="btn btn-danger add-btn btn-lg btn-block viewAllDogs">View All Dogs</button>
+            <button type="button" class="btn btn-primary add-btn btn-lg btn-block viewAllOwners">View All
+                Owners</button>
         </div>
-        <div class="col-4">
-            <div id="weatherDisplay">
-                <button type="button" class="btn btn-success btn-lg btn-block weatherBtn">View Current Weather</button>
-                <h3 id="weather"></h3>
+        <div class="col-4" id="weatherDisplay">
+            <button type="button" class="btn btn-success btn-lg btn-block weatherBtn">View Current Weather</button>
+            <h1 id="weather" style="text-align: center;"></h1>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-12">
+            <h1>Current Checked-in Dogs:</h1>
+            <div class="grid-container">
+                <div class="grid-header">Dog Name</div>
+                <div class="grid-header">Owner Name</div>
+                <div class="grid-header">Morning Walk</div>
+                <div class="grid-header">Noon Walk</div>
+                <div class="grid-header">Late Walk</div>
+                <div class="grid-header">Meds?</div>
+                <div class="grid-header">Notes</div>
+
+                {{#each dogs}}
+                {{#if check_in}}
+                <div class="grid-item">{{dog_name}}</div>
+                <div class="grid-item">{{owner_name}}</div>
+                <div class="grid-item">{{morning_walk}}</div>
+                <div class="grid-item">{{midday_walk}}</div>
+                <div class="grid-item">{{late_walk}}</div>
+                <div class="grid-item">{{meds}}</div>
+                <div class="grid-item">{{notes}}</div>
+                {{/if}}
+                {{/each}}
             </div>
         </div>
     </div>
 </div>
+</div>
+
+
+<style>
+    .grid-container {
+        display: grid;
+        margin-top: 30px;
+        grid-template-columns: auto auto auto auto auto auto auto;
+        background-color: lightgray;
+    }
+
+    .grid-header {
+        text-align: center;
+        background-color: lightgray;
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        font-size: 20px;
+    }
+
+    .grid-item {
+        background-color: lightgray;
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        font-size: 15px;
+        text-align: center;
+
+    }
+
+    hr {
+        color: rgba(0, 0, 0, 0.8);
+        border: none;
+        height: 5px;
+        /* Set the hr color */
+        color: #333;
+        /* old IE */
+        background-color: #333;
+        /* Modern Browsers */
+    }
+</style>

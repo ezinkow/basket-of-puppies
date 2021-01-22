@@ -16,17 +16,23 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       defaultValue: "No",
     },
+
+    //check in
+    check_in: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    }
   });
 
-  // Dog.associate = function(models) {
-  //   // We're saying that a Dog should belong to an Owner
-  //   // A Dog can't be added without an Owner due to the foreign key constraint
-  //   Dog.belongsTo(models.Owner, {
-  //     foreignKey: {
-  //       allowNull: false
-  //     }
-  //   });
-  // };
+  Dog.associate = function(models) {
+    // We're saying that a Dog should belong to an Owner
+    // A Dog can't be added without an Owner due to the foreign key constraint
+    Dog.belongsTo(models.Owner, {
+      foreignKey: {
+        allowNull: 0
+      }
+    });
+  };
 
   return Dog;
 };

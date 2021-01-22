@@ -6,8 +6,16 @@ var db = require("../models");
 module.exports = function(app) {
 
     app.get("/", function(req, res) {
-        res.render("index")
+        db.Dog.findAll({})
+        .then(function (data) {
+            var hbsObject = {
+                dogs: data
+            }
+            console.log("hbsobject", hbsObject)
+            res.render("index", hbsObject)
+        })
     })
+    
     app.get("/login", function(req, res) {
         res.render("login")
     })

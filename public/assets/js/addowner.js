@@ -2,6 +2,7 @@ $(document).ready(function () {
 
     $(".addOwner").on("submit", function (event) {
         event.preventDefault()
+        $(".addDogToOwner").removeClass("invisible")
         const newOwner = {
             owner_name: $("#owner_name").val().trim(),
             owner_phone: $("#owner_phone").val().trim(),
@@ -15,7 +16,14 @@ $(document).ready(function () {
             data: newOwner
         }).then(
             function (res) {
-                location.href = "/"
+                // location.reload()
             })
     })
+
+
+
+
+
+
 })
+
