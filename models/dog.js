@@ -4,6 +4,9 @@ module.exports = function (sequelize, DataTypes) {
     dog_name: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        len: [1]
+      }
     },
     //adding column for medicine information
     meds: {
@@ -21,6 +24,11 @@ module.exports = function (sequelize, DataTypes) {
     check_in: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
+    },
+
+    //notes
+    notes: {
+      type: DataTypes.STRING,
     }
   });
 

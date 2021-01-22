@@ -1,9 +1,44 @@
-<ul>
-{{#each owners}}
-<p>Owner Name: {{owner_name}}</p>
-<p>Owner phone: {{owner_phone}}</p>
-{{else}}
-<p>no owners available</p>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="grid-container">
+                <div class="grid-header">Owner First Name</div>
+                <div class="grid-header">Owner Last Name</div>
+                <div class="grid-header">Owner Phone</div>
+                <div class="grid-header">Owner Email</div>
+                <div class="grid-header">Alternative Pickup</div>
 
-{{/each}}
-</ul>
+                {{#each owners}}
+                <div class="grid-item">{{owner_first_name}}</div>
+                <div class="grid-item">{{owner_last_name}}</div>
+                <div class="grid-item">{{owner_phone}}</div>
+                <div class="grid-item">{{owner_email}}</div>
+                <div class="grid-item">{{alt_pickup_name}}</div>
+                
+                {{else}}
+                <p>no owners available</p>
+
+                {{/each}}
+
+<style>
+    .grid-container {
+        display: grid;
+        margin-top: 30px;
+        grid-template-columns: auto auto auto auto auto;
+        background-color: lightgray;
+    }
+
+    .grid-header {
+        text-align: center;
+        background-color: lightgray;
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        font-size: 25px;
+    }
+
+    .grid-item {
+        background-color: lightgray;
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        font-size: 20px;
+        text-align: center;
+
+    }
