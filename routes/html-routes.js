@@ -1,28 +1,65 @@
 var path = require("path");
+var db = require("../models");
 
 // Routes
 // =============================================================
-module.exports = function (app) {
+module.exports = function(app) {
 
-    app.get("/", function (req, res) {
+    app.get("/", function(req, res) {
         res.render("index")
     })
-    app.get("/login", function (req, res) {
+    app.get("/login", function(req, res) {
         res.render("login")
     })
 
-    app.get("/adddog", function (req, res) {
-        res.render("adddog")
-    })
-  
-    app.get("/addowner", function (req, res) {
+    // app.get("/adddog", function(req, res) {
+    //     res.render("adddog")
+    //     console.log("hi 2")
+    // })
+
+    app.get("/addowner", function(req, res) {
         res.render("addowner")
+    })
+
+    app.get("/daycare", function(req, res) {
+        res.render("daycare")
     })
 
     // app.get("/activities", function (req, res) {
     //     res.render("activities")
     // })
 
+    app.get("/owners", function(req, res) {
+        db.Owner.findAll({})
+            .then(function(data) {
+                var hbsObject = {
+                    owners: data
+                }
+                console.log(hbsObject)
+                res.render("owners", hbsObject)
+            })
+    })
 
+    app.get("/adddog", function(req, res) {
+        db.Owner.findAll({})
+            .then(function(data) {
+                var hbsObject = {
+                    owners: data
+                }
+                console.log(hbsObject)
+                res.render("adddog", hbsObject)
+            })
+    })
 
+    // const getOwners = (res) => {
+    //     db.Owner.findAll({})
+    //         .then(function(data) {
+    //             var hbsObject = {
+    //                 owners: data
+    //             }
+    //             console.log(hbsObject)
+    //             return hbsObject
+    //             res.render("adddog", hbsObject)
+    //         })
+    // }
 }

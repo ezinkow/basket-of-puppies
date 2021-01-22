@@ -4,13 +4,15 @@
                         <form class="addDog">
                                 <label for="name">Dog name:</label><br>
                                 <input type="text" id="dog_name" name="dog_name"><br>
-                                {{!-- <label for="owner name">Owner Name:</label>
+                                <label for="owner name">Owner Name:</label>
                                 <select id="owner_name" name="owner_name" placeholder="Owner Name">
+
+                                        {{#each owners}}
                                         <option value="{{owner_name}}">
-                                                {{#each owners}}
-                                                {{owner_name}}
-                                                {{/each}}
-                                        </option> --}}
+                                        {{owner_name}}
+                                        </option>
+                                        {{/each}}
+
                                 </select><br>
                                 <label for="shots">Up to date on shots?</label><br>
                                 <input type="checkbox" id="shots" name="shots" value="true"><br>
@@ -23,4 +25,7 @@
                         <img class="mb-4" src="assets/img/puppy3.png" alt="puppy">
                 </div>
         </div>
+        {{!-- {{#each owners}}
+        {{owner_name}}
+        {{/each}} --}}
 </div>

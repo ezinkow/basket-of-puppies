@@ -34,6 +34,11 @@ app.engine("handlebars", exphbs({
 app.set('view engine', 'handlebars');
 app.set("view engine", "handlebars");
 
+// // Use sessions to keep track of user's login status
+// app.use(session({ secret: "look this up", resave: true, saveUninitialized: true }));
+// app.use(passport.initialize());
+// app.use(passport.session());
+
 // var routes = require("./controllers/dogs_controller.js");
 // app.use(routes);
 
@@ -47,7 +52,7 @@ require("./routes/activity-api-routes.js")(app);
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
 db.sequelize.sync({ force: false }).then(function() {
-  app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
-  });
+    app.listen(PORT, function() {
+        console.log("App listening on PORT " + PORT);
+    });
 });

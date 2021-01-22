@@ -3,46 +3,28 @@ var db = require("../models");
 
 // Routes
 // =============================================================
-module.exports = function (app) {
+module.exports = function(app) {
 
-    app.get("/api/owners/", function (req, res) {
+    app.get("/api/owners/", function(req, res) {
         db.Owner.findAll({})
-            .then(function (dbOwner) {
+            .then(function(dbOwner) {
                 res.json(dbOwner)
                 console.log(dbOwner)
             })
-            
+
     })
 
-    app.post("/api/owners", function (req, res) {
+    app.post("/api/owners", function(req, res) {
         db.Owner.create({
-            owner_name: req.body.owner_name,
-            owner_phone: req.body.owner_phone,
-            owner_email: req.body.owner_email,
-            alt_pickup_name: req.body.alt_pickup_name
-        })
-            .then(function (dbOwner) {
+                owner_name: req.body.owner_name,
+                owner_phone: req.body.owner_phone,
+                owner_email: req.body.owner_email,
+                alt_pickup_name: req.body.alt_pickup_name
+            })
+            .then(function(dbOwner) {
                 res.json(dbOwner)
             })
     })
-
-    app.get("/owners", function (req, res) {
-        db.Owner.findAll({})
-            .then(function (data) {
-                var hbsObject = {
-                    owners: data
-                }
-                console.log(hbsObject)
-                res.render("owners", hbsObject)
-            })
-    })
-
-
-
-
-
-
-
 
 
 }
