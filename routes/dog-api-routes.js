@@ -1,5 +1,6 @@
 // Requiring our models
 var db = require("../models");
+const dog = require("../models/dog");
 
 // Routes
 // =============================================================
@@ -21,6 +22,17 @@ module.exports = function (app) {
         })
             .then(function (dbDog) {
                 res.json(dbDog)
+            })
+    })
+
+    app.get("/dogs", function (req, res) {
+        db.Dog.findAll({})
+            .then(function (data) {
+                var hbsObject = {
+                    dogs: data
+                }
+                console.log(hbsObject)
+                res.render("dogs", hbsObject)
             })
     })
 
