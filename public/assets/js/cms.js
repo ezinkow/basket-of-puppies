@@ -1,5 +1,3 @@
-const { on } = require("nodemon");
-
 function updateDog(dog) {
 
     $(".updateActivity").on("click", function (event) {
@@ -16,3 +14,14 @@ function updateDog(dog) {
             )
     })
 }
+
+// $("#checkbox").text($("#shots").val())
+
+// $("#shots").on("change", function() {
+//     if ($(this).is(":checked")) {
+//         $(this).attr("value", "true")
+//     } else {
+//         $(this).attr("value", "false")
+//     }
+//     $("#checkbox").text($("#shots").val())
+// })

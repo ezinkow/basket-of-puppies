@@ -5,10 +5,13 @@ var db = require("../models");
 // =============================================================
 module.exports = function (app) {
     app.get("/activities", function (req, res) {
-        db.Dog.findAll({})
+        db.Dog.findAll({
+            // include: owners
+        })
             .then(function (data) {
                 var hbsObject = {
-                    dogs: data
+                    dogs: data,
+                    // owners: data
                 }
                 console.log(hbsObject)
                 res.render("activities", hbsObject)
