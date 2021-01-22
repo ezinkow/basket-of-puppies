@@ -5,6 +5,8 @@
 // *** Dependencies
 // =============================================================
 var express = require("express");
+const Handlebars = require('handlebars')
+const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
 
 // Sets up the Express App
 // =============================================================
@@ -21,10 +23,15 @@ app.use(express.json());
 // Static directory
 app.use(express.static("public"));
 
+
 // Set Handlebars
 var exphbs = require("express-handlebars");
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine("handlebars", exphbs({
+  defaultLayout: "main",
+  handlebars: allowInsecurePrototypeAccess(Handlebars)
+}));
+app.set('view engine', 'handlebars');
 app.set("view engine", "handlebars");
 
 // var routes = require("./controllers/dogs_controller.js");

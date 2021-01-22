@@ -17,15 +17,15 @@ module.exports = function (sequelize, DataTypes) {
     },
   });
 
-  Dog.associate = function(models) {
-    // We're saying that a Dog should belong to an Owner
-    // A Dog can't be added without an Owner due to the foreign key constraint
-    Dog.belongsTo(models.Owner, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
+  // Dog.associate = function(models) {
+  //   // We're saying that a Dog should belong to an Owner
+  //   // A Dog can't be added without an Owner due to the foreign key constraint
+  //   Dog.belongsTo(models.Owner, {
+  //     foreignKey: {
+  //       allowNull: false
+  //     }
+  //   });
+  // };
 
   return Dog;
 };

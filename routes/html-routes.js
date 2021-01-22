@@ -19,9 +19,10 @@ module.exports = function (app) {
         res.render("addowner")
     })
 
-    app.get("/daycare", function (req, res) {
-        res.render("daycare")
-    })
+    // app.get("/activities", function (req, res) {
+    //     res.render("activities")
+    // })
+
 
 
 }

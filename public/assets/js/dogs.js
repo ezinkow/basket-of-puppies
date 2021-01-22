@@ -11,6 +11,14 @@ $(document).ready(function() {
         event.preventDefault();
         location.href = "/owners"
     })
+    $(".viewAllDogs").on("click", function (event) {
+        event.preventDefault();
+        location.href = "/dogs"
+    })
+    $(".updateDogActivity").on("click", function (event) {
+        event.preventDefault();
+        location.href = "/activities"
+    })
 
     
     
