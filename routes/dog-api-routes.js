@@ -21,6 +21,7 @@ module.exports = function (app) {
             meds: req.body.meds
         })
             .then(function (dbDog) {
+                console.log("dbdog", dbDog)
                 res.json(dbDog)
             })
     })

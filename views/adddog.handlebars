@@ -15,9 +15,15 @@
 
                                 </select><br>
                                 <label for="shots">Up to date on shots?</label><br>
-                                <input type="checkbox" id="shots" name="shots" value="true"><br>
+                                <select id="shots" name="shots" value="Yes" style=style="width:20px; height:20px"><br>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                </select><br>
                                 <label for="meds">Does dog require medicine?</label><br>
-                                <input type="checkbox" id="meds" name="meds" value="true"><br>
+                                <select id="meds" name="meds"><br>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                </select><br><br>
                                 <input type="submit" value="Add Dog!" class="btn btn-info">
                         </form>
                 </div>
@@ -25,7 +31,4 @@
                         <img class="mb-4" src="assets/img/puppy3.png" alt="puppy">
                 </div>
         </div>
-        {{!-- {{#each owners}}
-        {{owner_name}}
-        {{/each}} --}}
 </div>
