@@ -41,9 +41,7 @@ $(document).ready(function() {
     $(".checkIn").on("click", checkInDog)
 
     function checkInDog() {
-        console.log("clicked check-in button")
         var id = $(this).data("id");
-        console.log(id)
             //create key value pair for check in true
         var checkInTrue = true;
         $.ajax("/api/dogs/" + id, {
@@ -52,12 +50,9 @@ $(document).ready(function() {
                 check_in: checkInTrue,
                 id
             }
-        }).then(
-            function() {
-                console.log('checked in the dog!')
-                    // Reload the page to get the updated list
-                    //location.reload();
-            }
-        );
+        })
     }
+
+
+    
 });

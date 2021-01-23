@@ -21,11 +21,4 @@ $(document).ready(function () {
         )
     })
 
-    $.ajax("/api/dogs", {
-        type: "POST",
-        data: newDog
-    }).then(
-        function(res) {
-            location.href = "/"
-        })
 })
