@@ -28,6 +28,7 @@ $(document).ready(function () {
     // })
 
     // Display today's date //
+    //try moment.js
     var d = new Date();
     var weekday = new Array(7);
     weekday[0] = "Sunday";

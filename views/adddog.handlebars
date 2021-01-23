@@ -4,11 +4,11 @@
                         <form class="addDog">
                                 <label for="name">Dog name:</label><br>
                                 <input type="text" id="dog_name" name="dog_name"><br>
-                                <label for="owner_name">Owner Name:</label> 
-                                <select id="owner_name" name="owner_name" placeholder="Owner Name">
+                                <label for="owner-select">Owner Name:</label> 
+                                <select id="owner-select" name="owner-select" placeholder="Owner Name">
                                         <option value="" disabled selected>Owner Name</option>
                                         {{#each owners}}
-                                        <option value="{{owner_first_name}} {{owner_last_name}}">
+                                        <option value="{{id}}">
                                                 {{owner_first_name}} {{owner_last_name}}
                                         </option>
                                         {{/each}}
