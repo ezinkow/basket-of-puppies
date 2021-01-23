@@ -1,30 +1,30 @@
-<form>
-    <div class="grid-item">Dog Name</div>
-    <div class="grid-item">Owner Name</div>
-    <div class="grid-item">Check in</div>
-    <div class="grid-item">Morning Walk<br><span><input type="checkbox" name="select-all" id="select-all-morning"
+<form class="form">
+    <div class="grid-items">Dog Name</div>
+    <div class="grid-items">Owner Name</div>
+    <div class="grid-items">Check in</div>
+    <div class="grid-items">Morning Walk<br><span><input type="checkbox" name="select-all" id="select-all-morning"
                 class="morning" style="width:30%; height:30%">Select all</span></div>
-    <div class="grid-item">Noon Walk<br><span><input type="checkbox" name="select-all" id="select-all-noon" style="width:30%; height:30%">Select
+    <div class="grid-items">Noon Walk<br><span><input type="checkbox" name="select-all" id="select-all-noon" style="width:30%; height:30%">Select
             all</span></div>
-    <div class="grid-item">Late Walk<br><span><input type="checkbox" name="select-all" id="select-all-late" style="width:30%; height:30%">Select
+    <div class="grid-items">Late Walk<br><span><input type="checkbox" name="select-all" id="select-all-late" style="width:30%; height:30%">Select
             all</span></div>
-    <div class="grid-item">Meds?</div>
-    <div class="grid-item">Notes</div>
-    <div class="grid-item">Check out</div>
+    <div class="grid-items">Meds?</div>
+    <div class="grid-items">Notes</div>
+    <div class="grid-items">Check out</div>
 
     {{#each dogs}}
-    <div class="grid-item">{{dog_name}}</div>
-    <div class="grid-item">{{owner_name}}</div>
-    <div class="grid-item"><button>Check in</button></div>
+    <div class="grid-items">{{dog_name}}</div>
+    <div class="grid-items">{{owner_name}}</div>
+    <div class="grid-items"><button>Check in</button></div>
     <input type="checkbox" id="morning_walk" name="morning_walk" value="true"
         style="width:100%; height:100%">{{morning_walk}}</div>
     <input type="checkbox" id="midday_walk" name="midday_walk" value="true"
         style="width:100%; height:100%">{{midday_walk}}</div>
     <input type="checkbox" id="late_walk" name="late_walk" value="true" style="width:100%; height:100%">{{late_walk}}
     </div>
-    <div class="grid-item">{{meds}}</div>
-    <div class="grid-item">{{notes}}</div>
-    <div class="grid-item"><button>Check out</button></div>
+    <div class="grid-items">{{meds}}</div>
+    <div class="grid-items">{{notes}}</div>
+    <div class="grid-items"><button>Check out</button></div>
     {{/each}}
 </form>
 
@@ -81,7 +81,7 @@
 </script>
 
 <style>
-    form {
+    .form {
         display: grid;
         margin-top: 30px;
         grid-template-columns: auto auto auto auto auto auto auto auto auto;
@@ -94,7 +94,7 @@
         margin-top: 30px
     }
 
-    .grid-item {
+    .grid-items {
         background-color: rgba(255, 255, 255, 0.8);
         border: 1px solid rgba(0, 0, 0, 0.8);
         padding: 20px;
