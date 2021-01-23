@@ -18,6 +18,7 @@ module.exports = function(app) {
                 dog_name: req.body.dog_name,
                 shots: req.body.shots,
                 meds: req.body.meds,
+                notes: req.body.notes,
                 OwnerId: req.body.OwnerId
             })
             .then(function(dbDog) {

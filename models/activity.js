@@ -1,11 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
     const Activity = sequelize.define("Activity", {
-        // Giving the Dog ID a column from the foreign key
-        dog_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
-
         //giving columns to different walk times, a boolean set to false
         morning_walk: {
             type: DataTypes.BOOLEAN,

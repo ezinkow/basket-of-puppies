@@ -1,22 +1,22 @@
 $(document).ready(function() {
 
+    $(".updateActivity").on("click", function (event) {
+            event.preventDefault()
 
-    $(".addDog").on("submit", function(event) {
-        event.preventDefault()
+            const updateActivities = {
+                morning_walk: $("#morning_walk").val(),
+                midday_walk: $("#midday_walk").val(),
+                late_walk: $("#late_walk").val(),
+                notes: $("#notes").val().trim(),
+                DogId: $("#dogId")
+            }
 
-        const newDog = {
-            dog_name: $("#dog_name").val().trim(),
-            shots: $("#shots").val().trim(),
-            meds: $("#meds").val().trim(),
-            OwnerId: $("#owner-select").val().trim()
-        }
-        console.log(newDog)
+            $.ajax("/api/activities/", {
+                type: "PUT",
+                data: updateActivities
+            }).then(
+                    location.reload()
+                )
+        })
 
-        $.ajax("/api/dogs", {
-            type: "POST",
-            data: newDog
-        }).then(
-            function(res) {
-                location.href = "/"
-            })
-    })
+})
