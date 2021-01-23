@@ -40,12 +40,17 @@ module.exports = function(app) {
     })
 
     app.put("/api/dogs/:id", function(req, res) {
-        db.Dog.update(
-            req.body, {
-                where: {
-                    id: req.body.id
-                }
-            }).then(function(dbPost) {
+        console.log("test?", req.body);
+        console.log("id", req.body.id);
+        console.log("check in status", req.body.check_in);
+
+        db.Dog.update({
+            check_in: req.body.check_in
+        }, {
+            where: {
+                id: req.body.id
+            }
+        }).then(function(dbPost) {
             res.json(dbPost);
         });
     });
