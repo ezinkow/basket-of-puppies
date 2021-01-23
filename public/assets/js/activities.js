@@ -1,22 +1,29 @@
 $(document).ready(function() {
 
-    $(".updateActivity").on("click", function (event) {
-            event.preventDefault()
+    $(".updateActivity").on("click", function(event) {
+        event.preventDefault()
 
-            const updateActivities = {
-                morning_walk: $("#morning_walk").val(),
-                midday_walk: $("#midday_walk").val(),
-                late_walk: $("#late_walk").val(),
-                notes: $("#notes").val().trim(),
-                DogId: $("#dogId")
-            }
+        const updateActivities = {
+            morning_walk: $("#morning_walk").val(),
+            midday_walk: $("#midday_walk").val(),
+            late_walk: $("#late_walk").val(),
+            notes: $("#notes").val().trim(),
+            DogId: $("#dogId")
+        }
 
-            $.ajax("/api/activities/", {
-                type: "PUT",
-                data: updateActivities
-            }).then(
-                    location.reload()
-                )
+        $.ajax("/api/activities/", {
+            type: "PUT",
+            data: updateActivities
+        }).then(
+            location.reload()
+        )
+    })
+
+    $.ajax("/api/dogs", {
+        type: "POST",
+        data: newDog
+    }).then(
+        function(res) {
+            location.href = "/"
         })
-
 })

@@ -1,63 +1,63 @@
 $(document).ready(function() {
-    $(".addNewDog").on("click", function (event) {
+    $(".addNewDog").on("click", function(event) {
         event.preventDefault();
         location.href = "/adddog"
     })
-    
-    $(".addNewOwner").on("click", function (event) {
+
+    $(".addNewOwner").on("click", function(event) {
         event.preventDefault();
         location.href = "/addowner"
     })
 
-    $(".viewAllOwners").on("click", function (event) {
+    $(".viewAllOwners").on("click", function(event) {
         event.preventDefault();
         location.href = "/owners"
     })
 
-    $(".viewAllDogs").on("click", function (event) {
+    $(".viewAllDogs").on("click", function(event) {
         event.preventDefault();
         location.href = "/dogs"
     })
 
-    $(".updateDogActivity").on("click", function (event) {
+    $(".updateDogActivity").on("click", function(event) {
         event.preventDefault();
         location.href = "/activities"
     })
 
-    $(".addDogToOwner").on("click", function (event) {
+    $(".addDogToOwner").on("click", function(event) {
         event.preventDefault()
-        location.href = "/adddogtoowner"  
+        location.href = "/adddogtoowner"
     })
 
-    $(".quickCheckIn").on("click", function (event) {
+    $(".quickCheckIn").on("click", function(event) {
         event.preventDefault()
         location.href = "/dogs"
     })
-    $(".updateActivities").on("click", function (event) {
+    $(".updateActivities").on("click", function(event) {
         event.preventDefault()
         location.href = "/activities"
     })
 
-    $(".checkIn").on("click", updateDog)
+    $(".checkIn").on("click", checkInDog)
 
-    function updateDog(dog) {
-        $.ajax({
+    function checkInDog() {
+        console.log("clicked check-in button")
+        var id = $(this).data("id");
+        console.log(id)
+            //create key value pair for check in true
+        var checkInTrue = true;
+        $.ajax("/api/dogs/" + id, {
             method: "PUT",
-            url: "/api/dogs/",
-            data: dog
-        })
-        console.log("dogssssss", dog)
-                .then(
-                    location.reload()
-                )
-        }
-    
-
-    
-    
-
-
-
-
-
+            data: {
+                check_in: checkInTrue,
+                id
+            }
+        }).then(
+            function() {
+                console.log('checked in the dog!')
+                    // Reload the page to get the updated list
+                    //location.reload();
+            }
+        );
+    }
 });
