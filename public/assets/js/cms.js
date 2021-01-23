@@ -1,20 +1,4 @@
 $(document).ready(function () {
-    function updateDog(dog) {
-
-        $(".updateActivity").on("click", function (event) {
-            event.preventDefault()
-
-            var id = $(this).data("id");
-
-
-            $.ajax("/api/activities/" + id, {
-                type: "PUT"
-            })
-                .then(
-                    location.reload()
-                )
-        })
-    }
 
     // $("#checkbox").text($("#shots").val())
 
@@ -66,6 +50,7 @@ $(document).ready(function () {
     //===========//
 
     $(".weatherBtn").on("click", function displayWeather() {
+        $("#weather").html("")
         var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=Chicago&units=imperial&appid=da5a0b2df3ad3a18dae3207cc7ca31bf";
         $.ajax({
             url: queryURL,

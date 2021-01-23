@@ -7,6 +7,7 @@
                 <div class="grid-header">Shots Records?</div>
                 <div class="grid-header">Owner First Name</div>
                 <div class="grid-header">Owner Last Name</div>
+                <div class="grid-header">Notes</div>
                 <div class="grid-header">Quick Check-in</div>
                 {{#each dogs}}
                 <div class="grid-item">{{dog_name}}</div>
@@ -14,6 +15,7 @@
                 <div class="grid-item">{{shots}}</div>
                 <div class="grid-item">{{owner_first_name}}</div>
                 <div class="grid-item">{{owner_last_name}}</div>
+                <div class="grid-item">{{notes}}</div>
                 <button class="grid-item btn btn-primary text-dark checkIn" data-id="{{id}}" data-check_in="{{check_in}}">Check In</div>
 
                 {{else}}
@@ -35,7 +37,7 @@
     .grid-container {
         display: grid;
         margin-top: 30px;
-        grid-template-columns: auto auto auto auto auto auto;
+        grid-template-columns: auto auto auto auto auto auto auto;
         background-color: lightgray;
     }
 
