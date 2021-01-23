@@ -16,17 +16,6 @@ module.exports = function(sequelize, DataTypes) {
             defaultValue: false,
         },
 
-        //creating column for medication times/info
-        med_info: {
-            type: DataTypes.STRING,
-            allowNull: true,
-        },
-
-        //creating column for extra notes
-        notes: {
-            type: DataTypes.STRING,
-            allowNull: true,
-        },
     });
 
     Activity.associate = function(models) {

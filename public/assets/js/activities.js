@@ -2,13 +2,14 @@ $(document).ready(function () {
 
     $(".updateActivity").on("click", function (event) {
         event.preventDefault()
+        var id = $(this).data("id");
         console.log("hello")
         const updateActivities = {
             morning_walk: $("#morning_walk").val(),
             midday_walk: $("#midday_walk").val(),
             late_walk: $("#late_walk").val(),
             notes: $("#notes").val().trim(),
-            DogId: $("#dogId")
+            id
         }
 
         $.ajax("/api/activities/", {
