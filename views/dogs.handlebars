@@ -17,21 +17,39 @@
                 <div class="grid-item">{{owner_first_name}}</div>
                 <div class="grid-item">{{owner_last_name}}</div>
                 <div class="grid-item">{{notes}}</div>
-                <button class="grid-item btn btn-primary text-dark checkIn" data-id="{{id}}"
-                    data-check_in="{{check_in}}">Check In</button>
+                <button type="button" class="grid-item btn btn-primary text-dark checkIn" data-toggle="modal" data-target="#check_in" data-id="{{id}}" data-check_in="{{check_in}}">Check In</button>
                 <button class="grid-item btn btn-danger text-dark deleteDog" data-id="{{id}}"
                     data-check_in="{{delete}}">Delete Dog</button>
 
-            {{else}}
-            <p>No dogs to display</p>
-            
-            {{/each}}
+                {{else}}
+                <p>No dogs to display</p>
+
+                {{/each}}
             </div>
         </div>
     </div>
 </div>
 
 
+<!-- Modal -->
+<div class="modal fade" id="check_in" tabindex="-1" role="dialog" aria-labelledby="check_in_Label" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="check_in_Label">Check in</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Checked in!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <style>
     .grid-container {

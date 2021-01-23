@@ -10,44 +10,18 @@ $(document).ready(function () {
     //     }
     //     $("#checkbox").text($("#shots").val())
     // })
-
+    
     // Display today's date //
-    //try moment.js
-    var d = new Date();
-    var weekday = new Array(7);
-    weekday[0] = "Sunday";
-    weekday[1] = "Monday";
-    weekday[2] = "Tuesday";
-    weekday[3] = "Wednesday";
-    weekday[4] = "Thursday";
-    weekday[5] = "Friday";
-    weekday[6] = "Saturday";
-    var month = new Array();
-    month[0] = "January";
-    month[1] = "February";
-    month[2] = "March";
-    month[3] = "April";
-    month[4] = "May";
-    month[5] = "June";
-    month[6] = "July";
-    month[7] = "August";
-    month[8] = "September";
-    month[9] = "October";
-    month[10] = "November";
-    month[11] = "December";
 
-    var day = weekday[d.getDay()];
-    var month = month[d.getMonth()]
-    var date = d.getDate();
-    var year = d.getFullYear()
-    var today = "Today is: " + day + ", " + month + " " + date + ", " + year
-
-
+    var day = moment().format('dddd'); 
+    var date = moment().format('MMMM Do, YYYY');
+    var today = "Today is " + day + ", " + date
     $("#date").html(today)
 
 
+    //===========
 
-    //===========//
+    //Weather
 
     $(".weatherBtn").on("click", function displayWeather() {
         $("#weather").html("")
@@ -56,12 +30,15 @@ $(document).ready(function () {
             url: queryURL,
             method: "GET"
         }).then(function (response) {
-            console.log(response)
             // creates a div to hold the weather
-            var weatherOutput = $("<div>")
-            var temperature = response.main.temp.toFixed(2)
-            weatherOutput.text(temperature + " °F")
-            $("#weather").append(weatherOutput)
+            var tempOutput = $("<div>")
+            var conditionsOutput = $("<div>")
+            var temperature = response.main.temp.toFixed(0)
+            var conditions = response.weather[0].description
+            tempOutput.text(temperature + " °F")
+            conditionsOutput.text(conditions)
+            $("#weather").append(tempOutput)
+            $("#weather").append(conditionsOutput)
         })
 
     })
