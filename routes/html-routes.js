@@ -15,7 +15,7 @@ module.exports = function(app) {
             res.render("index", hbsObject)
         })
     })
-    
+
     app.get("/login", function(req, res) {
         res.render("login")
     })
@@ -29,16 +29,12 @@ module.exports = function(app) {
         res.render("addowner")
     })
 
-    app.get("/daycare", function(req, res) {
-        res.render("daycare")
-    })
-
-    // app.get("/activities", function (req, res) {
-    //     res.render("activities")
-    // })
-
     app.get("/owners", function(req, res) {
-        db.Owner.findAll({})
+        db.Owner.findAll({
+            order: [
+                ["owner_last_name", "ASC"],
+              ],
+            })
             .then(function(data) {
                 var hbsObject = {
                     owners: data

@@ -2,21 +2,29 @@
         <div class="row">
                 <div class="col-5">
                         <form class="addOwner">
-                                <label for="owner name">Owner's name:</label><br>
-                                <input type="text" id="owner_name" name="owner_name"><br>
+                                <label for="owner name">Owner's first name:</label><br>
+                                <input type="text" id="owner_first_name" name="owner_first_name"><br>
+                                <label for="owner name">Owner's last name:</label><br>
+                                <input type="text" id="owner_last_name" name="owner_last_name"><br>
                                 <label for="owner phone">Owner's phone number:</label><br>
-                                <input type="text" id="owner_phone" name="owner_phone"><br>
+                                <input type="text" id="owner_phone" name="owner_phone" style="width:10%" maxlength="3">
+                                -
+                                <input type="text" id="owner_phone2" name="owner_phone" style="width:10%" maxlength="3">
+                                -
+                                <input type="text" id="owner_phone3" name="owner_phone" style="width:15%"
+                                        maxlength="4"><br>
                                 <label for="owner email">Owner's email:</label><br>
                                 <input type="text" id="owner_email" name="owner_email"><br>
                                 <label for="alt pickup">Name of alternate pickup person:</label><br>
                                 <input type="text" id="alt_pickup_name" name="alt_pickup_name"><br></br>
                                 <input type="submit" value="Add Owner!" class="btn btn-info">
-                                <button class="invisible btn btn-primary addDogToOwner">Add a dog for this owner</button>
+                                <button class="invisible btn btn-primary addDogToOwner">Add a dog for this
+                                        owner</button>
                         </form>
                         <br>
-                        
+
                 </div>
-                
+
                 <div class="col-7">
                         <img class="mb-4" src="assets/img/owner-2.png" alt="puppy">
                 </div>

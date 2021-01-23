@@ -3,32 +3,39 @@ $(document).ready(function() {
         event.preventDefault();
         location.href = "/adddog"
     })
+    
     $(".addNewOwner").on("click", function (event) {
         event.preventDefault();
         location.href = "/addowner"
     })
+
     $(".viewAllOwners").on("click", function (event) {
         event.preventDefault();
         location.href = "/owners"
     })
+
     $(".viewAllDogs").on("click", function (event) {
         event.preventDefault();
         location.href = "/dogs"
     })
+
     $(".updateDogActivity").on("click", function (event) {
         event.preventDefault();
         location.href = "/activities"
     })
+
     $(".addDogToOwner").on("click", function (event) {
         event.preventDefault()
-        location.href = "/adddogtoowner"
-        
+        location.href = "/adddogtoowner"  
     })
 
     $(".quickCheckIn").on("click", function (event) {
         event.preventDefault()
         location.href = "/dogs"
-
+    })
+    $(".updateActivities").on("click", function (event) {
+        event.preventDefault()
+        location.href = "/activities"
     })
 
     $(".checkIn").on("click", updateDog)

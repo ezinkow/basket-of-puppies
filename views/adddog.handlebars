@@ -4,23 +4,25 @@
                         <form class="addDog">
                                 <label for="name">Dog name:</label><br>
                                 <input type="text" id="dog_name" name="dog_name"><br>
-                                <label for="owner name">Owner Name:</label>
-                                <select id="owner-select" name="owner_id" placeholder="Owner Name">
-
+                                <label for="owner_name">Owner Name:</label> 
+                                <select id="owner_name" name="owner_name" placeholder="Owner Name">
+                                        <option value="" disabled selected>Owner Name</option>
                                         {{#each owners}}
-                                        <option value="{{id}}">
-                                        {{owner_name}}
+                                        <option value="{{owner_first_name}} {{owner_last_name}}">
+                                                {{owner_first_name}} {{owner_last_name}}
                                         </option>
                                         {{/each}}
 
                                 </select><br>
                                 <label for="shots">Up to date on shots?</label><br>
-                                <select id="shots" name="shots" value="Yes" style=style="width:20px; height:20px"><br>
+                                <select id="shots" name="shots" value="Yes" style=style="width:20px; height:20px" placeholder="Shots?"><br>
+                                        <option value="" disabled selected>Shots?</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
                                 </select><br>
                                 <label for="meds">Does dog require medicine?</label><br>
                                 <select id="meds" name="meds"><br>
+                                        <option value="" disabled selected>Meds?</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
                                 </select><br><br>
