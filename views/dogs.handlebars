@@ -1,12 +1,53 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="grid-container">
+                <div class="grid-header">Dog Name</div>
+                <div class="grid-header">Meds?</div>
+                <div class="grid-header">Shots Records?</div>
+                <div class="grid-header">Owner Name</div>
+                <div class="grid-header">Quick Check-in</div>
+                {{#each dogs}}
+                <div class="grid-item">{{dog_name}}</div>
+                <div class="grid-item">{{meds}}</div>
+                <div class="grid-item">{{shots}}</div>
+                <div class="grid-item">{{owner_name}}</div>
+                <button class="grid-item btn btn-primary text-dark checkIn" data-id="{{id}}" data-check_in="{{check_in}}">Check In</div>
 
-<ul>
-{{#each dogs}}
-<p>Dog Name: {{dog_name}}</p>
-<p>Meds: {{meds}}</p>
-<p>Shot records: {{shots}}</p>
-{{else}}
-<p>no dogs available</p>
+                {{else}}
+                <p>no dogs available</p>
 
-{{/each}}
-</ul>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
 
+
+
+
+
+
+
+<style>
+    .grid-container {
+        display: grid;
+        margin-top: 30px;
+        grid-template-columns: auto auto auto auto auto;
+        background-color: lightgray;
+    }
+
+    .grid-header {
+        text-align: center;
+        background-color: lightgray;
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        font-size: 25px;
+    }
+
+    .grid-item {
+        background-color: lightgray;
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        font-size: 20px;
+        text-align: center;
+
+    }

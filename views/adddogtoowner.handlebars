@@ -1,19 +1,14 @@
 <div class="container">
         <div class="row">
                 <div class="col-5">
-                        <form class="addDog">
+                        <form class="addDogToOwner">
                                 <label for="name">Dog name:</label><br>
                                 <input type="text" id="dog_name" name="dog_name"><br>
-                                <label for="owner name">Owner Name:</label>
-                                <select id="owner-select" name="owner_id" placeholder="Owner Name">
-
-                                        {{#each owners}}
-                                        <option value="{{id}}">
-                                        {{owner_name}}
-                                        </option>
-                                        {{/each}}
-
-                                </select><br>
+                                <p>Owner Name:
+                                    {{#each owners}}
+                                    {{owner_name}}
+                                    {{/each}}
+                                    </p><br>
                                 <label for="shots">Up to date on shots?</label><br>
                                 <select id="shots" name="shots" value="Yes" style=style="width:20px; height:20px"><br>
                                         <option value="Yes">Yes</option>
@@ -25,6 +20,7 @@
                                         <option value="No">No</option>
                                 </select><br><br>
                                 <input type="submit" value="Add Dog!" class="btn btn-info">
+                                <button class="invisible btn btn-primary">Add another dog for this owner></button></span>
                         </form>
                 </div>
                 <div class="col-7">

@@ -4,31 +4,32 @@ const dog = require("../models/dog");
 
 // Routes
 // =============================================================
-module.exports = function (app) {
+module.exports = function(app) {
 
-    app.get("/api/dogs/", function (req, res) {
+    app.get("/api/dogs/", function(req, res) {
         db.Dog.findAll({})
-            .then(function (dbDog) {
+            .then(function(dbDog) {
                 res.json(dbDog)
             })
     })
 
-    app.post("/api/dogs", function (req, res) {
+    app.post("/api/dogs", function(req, res) {
         db.Dog.create({
-            dog_name: req.body.dog_name,
-            // owner_id: req.body.owner_id,
-            shots: req.body.shots,
-            meds: req.body.meds
-        })
-            .then(function (dbDog) {
+                dog_name: req.body.dog_name,
+                shots: req.body.shots,
+                meds: req.body.meds,
+                OwnerId: req.body.OwnerId
+            })
+            .then(function(dbDog) {
                 console.log("dbdog", dbDog)
                 res.json(dbDog)
             })
     })
 
-    app.get("/dogs", function (req, res) {
+
+    app.get("/dogs", function(req, res) {
         db.Dog.findAll({})
-            .then(function (data) {
+            .then(function(data) {
                 var hbsObject = {
                     dogs: data
                 }
@@ -37,12 +38,16 @@ module.exports = function (app) {
             })
     })
 
-
-
-
-
-
-
+    app.put("/api/dogs/:id", function(req, res) {
+        db.Dog.update(
+            req.body, {
+                where: {
+                    id: req.body.id
+                }
+            }).then(function(dbPost) {
+            res.json(dbPost);
+        });
+    });
 
 
 }
