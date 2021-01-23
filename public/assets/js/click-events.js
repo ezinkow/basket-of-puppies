@@ -42,6 +42,12 @@ $(document).ready(function() {
 
     function checkInDog() {
         var id = $(this).data("id");
+        const newActivityRow = {
+            DogId: id
+        }
+
+        console.log("clicked check-in button")
+        var id = $(this).data("id");
             //create key value pair for check in true
         var checkInTrue = true;
         $.ajax("/api/dogs/" + id, {
@@ -50,7 +56,12 @@ $(document).ready(function() {
                 check_in: checkInTrue,
                 id
             }
-        })
+        }).then(
+            $.ajax("/api/activities", {
+                type: "POST",
+                data: newActivityRow
+            })
+        );
     }
 
 
