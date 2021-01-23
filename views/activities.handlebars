@@ -7,17 +7,19 @@
     </div>
     <div class="grid-items">Noon Walk<br><span><input type="checkbox" name="select-all" id="select-all-noon"
                 style="width:30%; height:30%">Select
-            all</span></div>
+            all</span>
+    </div>
     <div class="grid-items">Late Walk<br><span><input type="checkbox" name="select-all" id="select-all-late"
                 style="width:30%; height:30%">Select
-            all</span></div>
+            all</span>
+    </div>
     <div class="grid-items">Meds?</div>
     <div class="grid-items">Notes</div>
     <div class="grid-items">Check out</div>
 
     {{#each dogs}}
     <div class="grid-items">{{dog_name}}</div>
-    <div class="grid-items">{{owner_name}}</div>
+    <div class="grid-items">{{owner_first_name}} {{owner_last_name}}</div>
     <div class="grid-items"><button>Check in</button></div>
     <input type="checkbox" id="morning_walk" name="morning_walk" value="true"
         style="width:100%; height:100%">{{morning_walk}}
@@ -27,7 +29,7 @@
     <input type="checkbox" id="late_walk" name="late_walk" value="true" style="width:100%; height:100%">{{late_walk}}
     </div>
     <div class="grid-items">{{meds}}</div>
-    <div class="grid-items"><input type="text" placeholder="{{notes}}"></div>
+    <div class="grid-items"><input type="text" id="notes" name="notes" placeholder="{{notes}}"></div>
     <div class="grid-items"><button>Check out</button></div>
     <div value={{id}} id="dogId" style="display:none"></div>
     {{/each}}
@@ -47,38 +49,38 @@
 
 
 <script>
-    $('#select-all-morning').click(function (event) {
+    $("#select-all-morning").click(function (event) {
         if (this.checked) {
             // Iterate each checkbox
-            $('#morning_walk').each(function () {
+            $("#morning_walk").each(function () {
                 this.checked = true;
             });
         } else {
-            $('#morning_walk').each(function () {
+            $("#morning_walk").each(function () {
                 this.checked = false;
             });
         }
     });
-    $('#select-all-noon').click(function (event) {
+    $("#select-all-noon").click(function (event) {
         if (this.checked) {
             // Iterate each checkbox
-            $('#midday_walk').each(function () {
+            $("#midday_walk").each(function () {
                 this.checked = true;
             });
         } else {
-            $('#midday_walk').each(function () {
+            $("#midday_walk").each(function () {
                 this.checked = false;
             });
         }
     });
-    $('#select-all-late').click(function (event) {
+    $("#select-all-late").click(function (event) {
         if (this.checked) {
             // Iterate each checkbox
-            $('#late_walk').each(function () {
+            $("#late_walk").each(function () {
                 this.checked = true;
             });
         } else {
-            $('#late_walk').each(function () {
+            $("#late_walk").each(function () {
                 this.checked = false;
             });
         }
@@ -86,10 +88,10 @@
 </script>
 
 <style>
-
     span {
         font-size: smaller;
     }
+
     .form {
         display: grid;
         margin-top: 30px;
