@@ -1,8 +1,8 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
-    $(".updateActivity").on("click", function(event) {
+    $(".updateActivity").on("click", function (event) {
         event.preventDefault()
-
+        console.log("hello")
         const updateActivities = {
             morning_walk: $("#morning_walk").val(),
             midday_walk: $("#midday_walk").val(),
@@ -13,7 +13,9 @@ $(document).ready(function() {
 
         $.ajax("/api/activities/", {
             type: "PUT",
-            data: updateActivities
+            data: updateActivities,
+            processData: false,
+            contentType: false,
         }).then(
             location.reload()
         )

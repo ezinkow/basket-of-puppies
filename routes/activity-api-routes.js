@@ -6,14 +6,14 @@ var db = require("../models");
 module.exports = function (app) {
     app.get("/activities", function (req, res) {
         db.Dog.findAll({
-            // include: owners
+            include: db.Owner
         })
             .then(function (data) {
                 var hbsObject = {
                     dogs: data,
                     // owners: data
                 }
-                console.log(hbsObject)
+                console.log(data)
                 res.render("activities", hbsObject)
             })
     })
