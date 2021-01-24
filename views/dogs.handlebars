@@ -19,15 +19,13 @@
                 <div class="grid-item">{{owner_first_name}}</div>
                 <div class="grid-item">{{owner_last_name}}</div>
                 <div class="grid-item">{{notes}}</div>
-                <button type="button" class="grid-item btn btn-primary text-dark checkIn" id="checkIn" data-toggle="modal"
-                    data-target="#check_in" data-id="{{id}}" data-check_in="{{check_in}}">Check In</button>
-                <button type="button" class="grid-item btn btn-success text-dark checkOut" id="checkOut" data-toggle="modal"
-                    data-target="#check_out" data-id="{{id}}" data-check_out="{{check_out}}">Check Out</button>
+                <button type="button" class="grid-item btn btn-success text-dark checkIn" data-id="{{id}}" data-check_in="{{check_in}}">Check In</button>
+                <button type="button" class="grid-item btn btn-primary text-dark checkOut" data-id="{{id}}" data-check_out="{{check_out}}">Check Out</button>
                 <button class="grid-item btn btn-danger text-dark deleteDog" data-id="{{id}}"
                     data-check_in="{{delete}}">Delete Dog</button>
 
-                {{else}}
-                <p>No dogs to display</p>
+                {{!-- {{else}}
+                <p>No dogs to display</p> --}}
 
                 {{/each}}
             </div>
@@ -36,11 +34,11 @@
 </div>
 
 <script>
-    $('#checkIn').click(function () {
+    $('.checkIn').click(function () {
         // show when the button is clicked
         toastr.success("Successfully checked in")
     })
-    $('#checkOut').click(function () {
+    $('.checkOut').click(function () {
         // show when the button is clicked
         toastr.success("Successfully checked out")
     })
