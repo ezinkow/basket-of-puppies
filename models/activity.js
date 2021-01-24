@@ -15,7 +15,13 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.BOOLEAN,
             defaultValue: false,
         },
-
+        med_info: {
+            type: DataTypes.STRING,
+    
+        },
+        notes: {
+            type: DataTypes.STRING
+        }
     });
 
     Activity.associate = function(models) {

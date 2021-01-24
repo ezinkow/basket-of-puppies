@@ -34,12 +34,7 @@ module.exports = function (app) {
     
     app.post("/api/activities", function(req, res) {
         console.log("req body", req.body)
-        db.Activity.create({
-            morning_walk: "",
-            midday_walk: "",
-            late_walk: "",
-            DogId: req.body.DogId
-        })
+        db.Activity.create(req.body)
         .then(function(dbActivity) {
             console.log("dbActivity", dbActivity)
             res.json(dbActivity)
