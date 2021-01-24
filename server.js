@@ -7,7 +7,8 @@
 var express = require("express");
 const Handlebars = require('handlebars')
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
-
+var session = require("express-session");
+var passport = require("./config/passport");
 // Sets up the Express App
 // =============================================================
 var app = express();
@@ -23,6 +24,10 @@ app.use(express.json());
 // Static directory
 app.use(express.static("public"));
 
+// We need to use sessions to keep track of our user's login status
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Set Handlebars
 var exphbs = require("express-handlebars");
@@ -48,7 +53,7 @@ require("./routes/html-routes.js")(app);
 require("./routes/dog-api-routes.js")(app);
 require("./routes/owner-api-routes.js")(app);
 require("./routes/activity-api-routes.js")(app);
-
+require("./routes/login-api-route")(app);
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
 db.sequelize.sync({ force: false }).then(function() {
