@@ -1,24 +1,38 @@
 var path = require("path");
 var db = require("../models");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 // Routes
 // =============================================================
 module.exports = function(app) {
 
     app.get("/", function(req, res) {
-        db.Dog.findAll({})
-        .then(function (data) {
-            var hbsObject = {
-                dogs: data
-            }
-            console.log("hbsobject", hbsObject)
-            res.render("index", hbsObject)
-        })
-    })
+        // If the user already has an account send them to the members page
+        if (req.user) {
+          res.redirect("/index");
+        } 
+        res.redirect("/login");
+      });
+    
+      app.get("/login", function(req, res) {
+        // If the user already has an account send them to the members page
+        if (req.user) {
+          res.redirect("/index");
+        } res.render("../views/login.handlebars");
+      });
 
-    app.get("/login", function(req, res) {
-        res.render("login")
-    })
+      app.get("/register", function(req, res) {
+        // If the user already has an account send them to the members page
+        if (req.user) {
+          res.redirect("/index");
+        } res.render("../views/register.handlebars");
+      });
+    
+      // Here we've add our isAuthenticated middleware to this route.
+      // If a user who is not logged in tries to access this route they will be redirected to the signup page
+      app.get("/index", isAuthenticated, function(req, res) {
+        res.render("../views/index.handlebars");
+      })
 
     // app.get("/adddog", function(req, res) {
     //     res.render("adddog")
@@ -29,12 +43,16 @@ module.exports = function(app) {
         res.render("addowner")
     })
 
+    app.get("/daycare", function(req, res) {
+        res.render("daycare")
+    })
+
+    // app.get("/activities", function (req, res) {
+    //     res.render("activities")
+    // })
+
     app.get("/owners", function(req, res) {
-        db.Owner.findAll({
-            order: [
-                ["owner_last_name", "ASC"],
-              ],
-            })
+        db.Owner.findAll({})
             .then(function(data) {
                 var hbsObject = {
                     owners: data

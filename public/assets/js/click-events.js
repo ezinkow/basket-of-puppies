@@ -37,6 +37,18 @@ $(document).ready(function() {
         event.preventDefault()
         location.href = "/activities"
     })
+    $(".signin").on("click", function (event) {
+        event.preventDefault();
+        location.href = "/index"
+    })
+    $(".register").on("click", function (event) {
+        event.preventDefault();
+        location.href = "/register"
+    })
+    $(".complete").on("click", function (event) {
+        event.preventDefault();
+        location.href = "/"
+    })
 
     $(".checkIn").on("click", checkInDog)
 
