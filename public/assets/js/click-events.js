@@ -19,10 +19,11 @@ $(document).ready(function() {
         location.href = "/dogs"
     })
 
-    $(".updateDogActivity").on("click", function(event) {
-        event.preventDefault();
-        location.href = "/activities"
-    })
+    // not sure this button exists
+    // $(".updateDogActivity").on("click", function(event) {
+    //     event.preventDefault();
+    //     location.href = "/activities"
+    // })
 
     $(".addDogToOwner").on("click", function(event) {
         event.preventDefault()

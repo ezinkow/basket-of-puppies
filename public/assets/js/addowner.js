@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     $(".addOwner").on("submit", function (event) {
         event.preventDefault()
-        // $(".addDogToOwner").removeClass("invisible")
+        $(".addDogToOwner").removeClass("invisible")
         const ownerPhone = $("#owner_phone").val().trim() + "-" + $("#owner_phone2").val().trim() + "-" + $("#owner_phone3").val().trim()
         const newOwner = {
             owner_first_name: $("#owner_first_name").val().trim(),

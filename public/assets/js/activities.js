@@ -4,6 +4,7 @@ $(document).ready(function () {
         event.preventDefault()
         getSelectedCheckBoxValues()
     })
+
     function getSelectedCheckBoxValues() {
         const morningWalkCheckboxes = document.querySelectorAll(`.morning_walk`);
         const middayWalkCheckboxes = document.querySelectorAll(`.midday_walk`);
@@ -12,24 +13,30 @@ $(document).ready(function () {
         const meds = document.querySelectorAll(`.meds`);
         const notes = document.querySelectorAll(`.notes`);
         let values = [];
-let i = 0
+        let i = 0
         morningWalkCheckboxes.forEach((checkbox) => {
-             
+
             console.log("hello")
             const updateActivities = {
                 morning_walk: checkbox.checked,
                 midday_walk: middayWalkCheckboxes[i].checked,
                 late_walk: lateWalkCheckboxes[i].checked,
                 DogId: dogIds[i].getAttribute("value"),
-                med_info: meds[i].textContent, 
-                notes: notes[i].value
-                
+
             }
-    
-            $.ajax("/api/activities" , {
+
+            const updateDogs = {
+                med_info: meds[i].textContent,
+                notes: notes[i].value
+            }
+
+            $.ajax("/api/activities", {
                 type: "POST",
                 data: updateActivities
-            }).then(function (data){
+            }).then($.ajax("/api/dogs", {
+                type: "POST",
+                data: updateDogs
+            })).then(function (data) {
                 console.log("data", data)
             })
             i++
@@ -37,4 +44,6 @@ let i = 0
         return values
 
     }
+
+
 })
