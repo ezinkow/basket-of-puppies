@@ -2,24 +2,39 @@ $(document).ready(function () {
 
     $(".updateActivity").on("click", function (event) {
         event.preventDefault()
-        var id = $(this).data("id");
-        console.log("hello")
-        const updateActivities = {
-            morning_walk: $("#morning_walk").val(),
-            midday_walk: $("#midday_walk").val(),
-            late_walk: $("#late_walk").val(),
-            notes: $("#notes").val().trim(),
-            id
-        }
-
-        $.ajax("/api/activities/", {
-            type: "PUT",
-            data: updateActivities,
-            processData: false,
-            contentType: false,
-        }).then(
-            location.reload()
-        )
+        getSelectedCheckBoxValues()
     })
+    function getSelectedCheckBoxValues() {
+        const morningWalkCheckboxes = document.querySelectorAll(`.morning_walk`);
+        const middayWalkCheckboxes = document.querySelectorAll(`.midday_walk`);
+        const lateWalkCheckboxes = document.querySelectorAll(`.late_walk`);
+        const dogIds = document.querySelectorAll(`.dogId`);
+        const meds = document.querySelectorAll(`.meds`);
+        const notes = document.querySelectorAll(`.notes`);
+        let values = [];
+let i = 0
+        morningWalkCheckboxes.forEach((checkbox) => {
+             
+            console.log("hello")
+            const updateActivities = {
+                morning_walk: checkbox.checked,
+                midday_walk: middayWalkCheckboxes[i].checked,
+                late_walk: lateWalkCheckboxes[i].checked,
+                DogId: dogIds[i].getAttribute("value"),
+                med_info: meds[i].textContent, 
+                notes: notes[i].value
+                
+            }
+    
+            $.ajax("/api/activities" , {
+                type: "POST",
+                data: updateActivities
+            }).then(function (data){
+                console.log("data", data)
+            })
+            i++
+        })
+        return values
 
+    }
 })
