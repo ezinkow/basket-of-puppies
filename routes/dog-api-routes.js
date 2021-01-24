@@ -55,5 +55,13 @@ module.exports = function(app) {
         });
     });
 
-
+    app.delete("/api/dogs/:id", function(req, res) {
+        db.Dog.destroy({
+            where: {
+                id: req.params.id
+            }
+        }).then(function(dbDogs) {
+            res.json(dbDogs);
+        });
+    });
 }
