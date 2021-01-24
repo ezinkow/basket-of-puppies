@@ -51,21 +51,19 @@ $(document).ready(function() {
     })
 
     $(".checkIn").on("click", checkInDog)
+    $(".checkOut").on("click", checkOutDog)
 
     function checkInDog() {
         var id = $(this).data("id");
         const newActivityRow = {
             DogId: id
         }
-
         console.log("clicked check-in button")
         var id = $(this).data("id");
-            //create key value pair for check in true
-        var checkInTrue = true;
         $.ajax("/api/dogs/" + id, {
             method: "PUT",
             data: {
-                check_in: checkInTrue,
+                check_in: true,
                 id
             }
         }).then(
@@ -75,7 +73,27 @@ $(document).ready(function() {
             })
         );
     }
+    //does a put request 
+    function checkOutDog() {
+        var id = $(this).data("id");
+        const activityRowToDelete = {
+            DogId: id
+        }
+        console.log("clicked check-out button")
+        var id = $(this).data("id");
+        $.ajax("/api/dogs/" + id, {
+            method: "PUT",
+            data: {
+                check_in: false,
+                id
+            }
+        }).then(
+            $.ajax("/api/activities", {
+                type: "DELETE",
+                data: activityRowToDelete
+            })
+        );
+    }
 
 
-    
 });
