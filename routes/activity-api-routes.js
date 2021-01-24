@@ -38,7 +38,7 @@ module.exports = function(app) {
                     res.status(200)
                 })
         })
-        //destroy call to api/activities requires an input Dogid. Removes ALL rows with same Dogid as input
+        //delete call to api/activities requires an input Dogid. Removes ALL rows with same Dogid as input
     app.delete("/api/activities/:id", function(req, res) {
         db.Activity.destroy({
             where: {
