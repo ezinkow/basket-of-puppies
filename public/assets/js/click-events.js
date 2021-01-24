@@ -37,28 +37,34 @@ $(document).ready(function() {
         event.preventDefault()
         location.href = "/activities"
     })
-    $(".signin").on("click", function (event) {
+    $(".signin").on("click", function(event) {
         event.preventDefault();
         location.href = "/index"
     })
-    $(".register").on("click", function (event) {
+    $(".register").on("click", function(event) {
         event.preventDefault();
         location.href = "/register"
     })
-    $(".complete").on("click", function (event) {
+    $(".complete").on("click", function(event) {
         event.preventDefault();
         location.href = "/"
     })
 
+    //buttons that do more than just navigate to a page
     $(".checkIn").on("click", checkInDog)
     $(".checkOut").on("click", checkOutDog)
+    $(".deleteDog").on("click", deleteDog)
+
+    //button functions
 
     function checkInDog() {
         var id = $(this).data("id");
         const newActivityRow = {
             DogId: id
         }
-        console.log("clicked check-in button")
+        console.log("clicked check-in button");
+        console.log(id);
+
         var id = $(this).data("id");
         $.ajax("/api/dogs/" + id, {
             method: "PUT",
@@ -76,6 +82,8 @@ $(document).ready(function() {
     //does a put request 
     function checkOutDog() {
         var id = $(this).data("id");
+        console.log("id", id);
+
         const activityRowToDelete = {
             DogId: id
         }
@@ -88,12 +96,32 @@ $(document).ready(function() {
                 id
             }
         }).then(
-            $.ajax("/api/activities", {
+            $.ajax("/api/activities/" + id, {
                 type: "DELETE",
                 data: activityRowToDelete
             })
         );
     }
 
+    function deleteDog() {
+        var id = $(this).data("id");
+        console.log("id", id);
 
+        const activityRowToDelete = {
+            DogId: id
+        }
+        console.log("clicked delete button")
+        var id = $(this).data("id");
+        $.ajax("/api/dogs/" + id, {
+            method: "DELETE",
+            data: {
+                id
+            }
+        }).then(
+            $.ajax("/api/activities/" + id, {
+                type: "DELETE",
+                data: activityRowToDelete
+            })
+        );
+    }
 });

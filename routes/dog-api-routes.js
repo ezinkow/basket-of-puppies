@@ -53,9 +53,11 @@ module.exports = function(app) {
             res.json(dbPost);
         });
     });
+
     //delete route deletes dog at input id
     app.delete("/api/dogs/:id", function(req, res) {
         db.Activity.destroy({
+
             where: {
                 id: req.params.id
             }
