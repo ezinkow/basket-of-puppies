@@ -3,40 +3,46 @@ var db = require("../models");
 
 // Routes
 // =============================================================
-module.exports = function(app) {
-    //activities page html route. When user goes to activities address, query Activities table for all activities, render activities view
-    app.get("/activities", function(req, res) {
-            db.Dog.findAll({
-                    include: db.Owner
-                })
-                .then(function(data) {
-                    var hbsObject = {
-                        dogs: data,
-                        // owners: data
-                    }
-                    console.log(data)
-                    res.render("activities", hbsObject)
-                })
+module.exports = function (app) {
+    app.get("/activities", function (req, res) {
+        db.Activity.findAll({
+            include: [db.Dog]
         })
-        //post call to /api/activities creates a new activities row
+            .then(function (data) {
+                var hbsObject = {
+                    activities: data,
+                    // dogs: data
+                }
+                console.log("data", data)
+                res.render("activities", hbsObject)
+            })
+    })
+    // app.get("/activities", function (req, res) {
+    //     db.Dog.findAll({
+    //         // include: [db.Activity]
+    //     })
+    //         .then(function (data) {
+    //             var hbsObject = {
+    //                 dogs: data,
+    //                 // activities: data
+    //             }
+    //             console.log(hbsObject)
+    //             res.render("activities", hbsObject)
+    //         console.log("hbs object", hbsObject)
+    //         })
+    // })
+    
     app.post("/api/activities", function(req, res) {
-            console.log("req body", req.body)
-            db.Activity.create(req.body)
-                .then(function(dbActivity) {
-                    console.log("dbActivity", dbActivity)
-                    res.json(dbActivity)
-                })
+        console.log("req body", req.body)
+        db.Activity.create({
+            morning_walk: "",
+            midday_walk: "",
+            late_walk: "",
+            DogId: req.body.DogId
         })
-        //put call to /api/activities requires an id. What does this do at input id?
-    app.put("/api/activities/:id", function(req, res) {
-            db.Activity.update(
-                req.params.id,
-                function(result) {
-                    if (result.changedRows === 0) {
-                        location.reload()
-                    }
-                    res.status(200)
-                })
+        .then(function(dbActivity) {
+            console.log("dbActivity", dbActivity)
+            res.json(dbActivity)
         })
         //delete call to api/activities requires an input Dogid. Removes ALL rows with same Dogid as input
     app.delete("/api/activities/:id", function(req, res) {
@@ -48,6 +54,20 @@ module.exports = function(app) {
             res.json(dbActivity);
         });
     });
+    })
+    
+    app.put("/api/activities/:id", function (req, res) {
+        db.Activity.update(
+            req.params.id,
+            function (result) {
+                if (result.changedRows === 0) {
+                    location.reload()
+                }
+                res.status(200)
+            })
+    })
+
+
 
 
 }
