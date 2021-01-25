@@ -4,7 +4,7 @@
                         <form class="addDog">
                                 <label for="name">Dog name:</label><br>
                                 <input type="text" id="dog_name" name="dog_name"><br>
-                                <label for="owner-select">Owner Name:</label> 
+                                <label for="owner-select">Owner Name:</label><br>
                                 <select id="owner-select" name="owner-select" placeholder="Owner Name">
                                         <option value="" disabled selected>Owner Name</option>
                                         {{#each owners}}
@@ -15,16 +15,17 @@
 
                                 </select><br>
                                 <label for="shots">Up to date on shots?</label><br>
-                                <select id="shots" name="shots" value="Yes" style=style="width:20px; height:20px" placeholder="Shots?"><br>
+                                <select id="shots" name="shots" value="Yes" style=style="width:20px; height:20px"
+                                        placeholder="Shots?"><br>
                                         <option value="" disabled selected>Shots?</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
                                 </select><br>
                                 <label for="meds">Medicine information:</label><br>
-                                <input type="text" id="meds" name="meds"><br>
+                                <input type="textarea" id="meds" name="meds">
                                 </select><br>
-                                <label for="notes">Notes:</label>
-                                <input type="text" id="notes" name="notes"><br>
+                                <label for="notes">Notes:</label><br>
+                                <input type="textarea" id="notes" name="notes"><br><br>
                                 <input type="submit" value="Add Dog!" class="btn btn-info">
                         </form>
                 </div>

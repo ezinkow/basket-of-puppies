@@ -1,22 +1,16 @@
-{{!-- login screen needs two updates. #1 passport or decrypt for authentication and 
+{{!-- login screen needs two updates. #1 passport or decrypt for authentication and
 # The passport or decrypt library will need handlebars and a js file --}}
 <form>
   <div class="container" id="contain">
-  <div class="form-group">
-    <img src="assets/img/basketpuppy1.jpg" class="puppy-logo">
-    <h1>Login Information</h1>
-    <label for="userinput">Username</label>
-    <input type="text" class="form-control" id="userinput" aria-describedby="emailHelp" placeholder="Enter Username">
-  </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" class="form-control" id="password" placeholder="Password">
-  </div>
-  <button type="submit" class="btn btn-primary sign in">Sign In</button>
-  </div>
-  </div>
-  <button type="submit" class="btn btn-primary register">Register</button>
-  </div>
+    <div class="form-group">
+      <img src="assets/img/basketpuppy1.jpg" class="puppy-logo">
+      <h1>Login Information</h1>
+      <label for="userinput">Username</label>
+      <input type="text" class="form-control" id="userinput" aria-describedby="emailHelp" placeholder="Enter Username">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" placeholder="Password"><br>
+      <button type="submit" class="btn btn-primary sign in">Sign In</button>
+      <button type="submit" class="btn btn-primary register">Register</button>
 </form>
 
 <style>
@@ -30,11 +24,11 @@
     width: 380px;
     height: 340px;
     box-sizing: border-box;
-    background: rgba(0,0,0,.5);
+    background: rgba(0, 0, 0, .5);
     color: tan;
   }
 
-  .puppy-logo{
+  .puppy-logo {
     width: 105px;
     height: 105px;
     border-radius: 50%;
@@ -45,18 +39,18 @@
 
   }
 
- input[type="text"], input[type="password"]
-  {
+  input[type="text"],
+  input[type="password"] {
     border: none;
     border-bottom: 1px solid tan;
     background: transparent;
     outline: none;
     height: 40px;
-    color:tan;
+    color: tan;
     font-size: 16px;
   }
 
-  body{
-      background-image: url("/assets/img/basketlogo1.png");
+  body {
+    background-image: url("/assets/img/basketlogo1.png");
   }
 </style>
