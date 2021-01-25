@@ -2,26 +2,26 @@ module.exports = function(sequelize, DataTypes) {
     const Activity = sequelize.define("Activity", {
         //giving columns to different walk times, a boolean set to false
         morning_walk: {
-            type: DataTypes.STRING,
+            type: DataTypes.BOOLEAN,
             defaultValue: false,
         },
 
         midday_walk: {
-            type: DataTypes.STRING,
+            type: DataTypes.BOOLEAN,
             defaultValue: false,
         },
 
         late_walk: {
-            type: DataTypes.STRING,
+            type: DataTypes.BOOLEAN,
             defaultValue: false,
         },
-        med_info: {
-            type: DataTypes.STRING,
+        // med_info: {
+        //     type: DataTypes.STRING,
     
-        },
-        notes: {
-            type: DataTypes.STRING
-        }
+        // },
+        // notes: {
+        //     type: DataTypes.STRING
+        // }
     });
 
     Activity.associate = function(models) {
