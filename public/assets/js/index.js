@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    // Display today's date //
+    // Display date and time
 
     var update = function () {
         date = moment(new Date())

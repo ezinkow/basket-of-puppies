@@ -11,9 +11,6 @@ $(document).ready(function () {
         var id = $(this).data("id");
         const newActivityRow = {
             DogId: id,
-            // morning_walk: false,
-            // midday_walk: false,
-            // late_walk: false
         }
         console.log("clicked check-in button");
         console.log("newactivrow", newActivityRow);

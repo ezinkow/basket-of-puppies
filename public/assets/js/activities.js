@@ -3,6 +3,7 @@ $(document).ready(function () {
     $(".updateActivity").click(function (event) {
         event.preventDefault()
         getSelectedCheckBoxValues()
+        // location.reload()
     })
 
     function getSelectedCheckBoxValues() {

@@ -3,8 +3,9 @@
         <div class="row">
             <div class="col-md-10">
                 <h1><span class="fa fa-cog"></span> Dashboard <small>Manage your
-                        PUPS!</small><span><p id="time"></p></span></h1>
-
+                        PUPS!</small><span>
+                        <p id="time"></p>
+                    </span></h1>
             </div>
         </div>
     </div>
@@ -19,7 +20,8 @@
 
     <div class="row">
         <div class="col-4">
-            <button type="button" class="btn btn-primary btn-lg add-btn btn-block quickCheckIn">Quick Check-in/Check-out</button>
+            <button type="button" class="btn btn-primary btn-lg add-btn btn-block quickCheckIn">Quick
+                Check-in/Check-out</button>
             <button type="button" class="btn btn-warning btn-lg add-btn btn-block addNewOwner">Add New Owner</button>
             <button type="button" class="btn btn-info btn-lg add-btn btn-block addNewDog">Add New Dog</button>
         </div>
@@ -27,11 +29,11 @@
             <button type="button" class="btn btn-success btn-lg add-btn btn-block updateActivities">Update
                 Daily Activities</button>
             <button type="button" class="btn btn-danger add-btn btn-lg btn-block viewAllDogs">View All Dogs</button>
-            <button type="button" class="btn btn-primary add-btn btn-lg btn-block viewAllOwners">View All
+            <button type="button" class="btn btn-secondary add-btn btn-lg btn-block viewAllOwners">View All
                 Owners</button>
         </div>
         <div class="col-4" id="weatherDisplay">
-            <button type="button" class="btn btn-warning btn-lg btn-block weatherBtn">View Current Weather</button>
+            <button type="button" class="btn btn-warning btn-lg btn-block weatherBtn"><span class="fa fa-sun-o"></span> View Current Weather  <span class="fa fa-cloud"></span></button>
             <h2 id="weather" class="hide"></h2>
         </div>
     </div>
@@ -91,6 +93,7 @@
         border: solid black;
         text-align: center;
         border-radius: 5px;
+        background: lightgray;
     }
 
     hr {
