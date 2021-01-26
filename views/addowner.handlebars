@@ -3,18 +3,18 @@
                 <div class="col-5">
                         <form class="addOwner">
                                 <label for="owner name">Owner's first name:</label><br>
-                                <input type="text" id="owner_first_name" name="owner_first_name"><br>
+                                <input type="text" id="owner_first_name" name="owner_first_name"><br><br>
                                 <label for="owner name">Owner's last name:</label><br>
-                                <input type="text" id="owner_last_name" name="owner_last_name"><br>
+                                <input type="text" id="owner_last_name" name="owner_last_name"><br><br>
                                 <label for="owner phone">Owner's phone number:</label><br>
                                 <input type="text" id="owner_phone" name="owner_phone" style="width:10%" maxlength="3">
                                 -
                                 <input type="text" id="owner_phone2" name="owner_phone" style="width:10%" maxlength="3">
                                 -
                                 <input type="text" id="owner_phone3" name="owner_phone" style="width:15%"
-                                        maxlength="4"><br>
+                                        maxlength="4"><br><br>
                                 <label for="owner email">Owner's email:</label><br>
-                                <input type="text" id="owner_email" name="owner_email"><br>
+                                <input type="text" id="owner_email" name="owner_email"><br><br>
                                 <label for="alt pickup">Name of alternate pickup person:</label><br>
                                 <input type="text" id="alt_pickup_name" name="alt_pickup_name"><br></br>
                                 <input type="submit" value="Add Owner!" class="btn btn-info">
@@ -25,8 +25,29 @@
 
                 </div>
 
-                <div class="col-7">
-                        <img class="mb-4" src="assets/img/owner-2.png" alt="puppy">
-                </div>
+                {{!-- <div class="col-7">
+                        <img class="mb-4" src="/assets/img/basketlogo1.png" alt="puppy">
+                </div> --}}
         </div>
 </div>
+
+<style>
+        body {
+               background-image: url("/assets/img/basketlogo1.png");
+        }
+
+        form {
+                background: rgb(32, 48, 111, 0.4);
+                padding: 30px;
+                border-radius: 30px;
+                font-weight: 500;                
+        }
+
+        label {
+                background: lightgray;
+                border-radius: 5px;
+                padding-left: 10px;
+                padding-right: 10px;
+        }
+
+</style>

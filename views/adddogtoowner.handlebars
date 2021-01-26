@@ -4,7 +4,8 @@
                         <form class="addDogToOwner">
                                 <label for="name">Dog name:</label><br>
                                 <input type="text" id="dog_name" name="dog_name"><br>
-                                <p>Owner Name:
+                                <p>Owner Name:</p>
+                                <p value={{id}}>
                                     {{#each owners}}
                                     {{owner_name}}
                                     {{/each}}

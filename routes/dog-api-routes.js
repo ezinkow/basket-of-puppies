@@ -28,7 +28,9 @@ module.exports = function(app) {
         })
         //dogs html route. Gets dogs from table, renders dogs view with this data
     app.get("/dogs", function(req, res) {
-            db.Dog.findAll({})
+            db.Dog.findAll({
+                include: [db.Owner]
+            })
                 .then(function(data) {
                     var hbsObject = {
                         dogs: data
@@ -65,4 +67,20 @@ module.exports = function(app) {
             res.json(dbDogs);
         });
     });
+
+        //who knows man
+        app.get("/adddogtoowner", function (req, res) {
+            db.Owner.findAll({
+                limit: 1,
+                order: [
+                    ['createdAt', 'DESC']
+                ]
+            }).then(function (data) {
+                var hbsObject = {
+                    owners: data
+                }
+                console.log("owners", data)
+                res.render("adddogtoowner", hbsObject)
+            })
+        })
 }

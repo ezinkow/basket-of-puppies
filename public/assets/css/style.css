@@ -3,12 +3,12 @@ body {
   background-size: 100%;
 }
 
-img {
+/* img {
   width: 150px;
   height: 220px;
   border:1px solid lightgray;
 
-}
+} */
 
 .hide {
   display: none;
@@ -80,12 +80,12 @@ user-select: none;
     background-size: 100%;
 }
 
-img {
+/* img {
     width: 150px;
     height: 220px;
     border:1px solid lightgray;
 
-}
+} */
 
 .add-btn {
 display: flex;

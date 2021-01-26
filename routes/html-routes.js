@@ -48,21 +48,7 @@ module.exports = function(app) {
     app.get("/daycare", function(req, res) {
             res.render("daycare")
         })
-        //this was added to a seperate js file with activities routes
-        // app.get("/activities", function (req, res) {
-        //     res.render("activities")
-        // })
-        //at owners query database for all owners, then render owners view + data
-    app.get("/owners", function(req, res) {
-            db.Owner.findAll({})
-                .then(function(data) {
-                    var hbsObject = {
-                        owners: data
-                    }
-                    console.log(hbsObject)
-                    res.render("owners", hbsObject)
-                })
-        })
+
         //at adddog query database for all owners, then render dog view + data
     app.get("/adddog", function(req, res) {
         db.Owner.findAll({})
