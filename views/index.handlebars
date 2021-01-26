@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-10">
                 <h1><span class="fa fa-cog"></span> Dashboard <small>Manage your
-                        site</small></h1>
+                        PUPS!</small><span><p id="time"></p></span></h1>
 
             </div>
         </div>
@@ -19,7 +19,7 @@
 
     <div class="row">
         <div class="col-4">
-            <button type="button" class="btn btn-primary btn-lg add-btn btn-block quickCheckIn">Quick Check-in</button>
+            <button type="button" class="btn btn-primary btn-lg add-btn btn-block quickCheckIn">Quick Check-in/Check-out</button>
             <button type="button" class="btn btn-warning btn-lg add-btn btn-block addNewOwner">Add New Owner</button>
             <button type="button" class="btn btn-info btn-lg add-btn btn-block addNewDog">Add New Dog</button>
         </div>
@@ -31,8 +31,8 @@
                 Owners</button>
         </div>
         <div class="col-4" id="weatherDisplay">
-            <button type="button" class="btn btn-success btn-lg btn-block weatherBtn">View Current Weather</button>
-            <h2 id="weather" style="text-align: center;"></h2>
+            <button type="button" class="btn btn-warning btn-lg btn-block weatherBtn">View Current Weather</button>
+            <h2 id="weather" class="hide"></h2>
         </div>
     </div>
     <hr>
@@ -41,25 +41,19 @@
             <h1>Current Checked-in Dogs:</h1>
             <div class="grid-container">
                 <div class="grid-header">Dog Name</div>
-                <div class="grid-header">Owner First Name</div>
-                <div class="grid-header">Owner Last Name</div>
                 <div class="grid-header">Morning Walk</div>
                 <div class="grid-header">Noon Walk</div>
                 <div class="grid-header">Late Walk</div>
                 <div class="grid-header">Meds?</div>
                 <div class="grid-header">Notes</div>
 
-                {{#each dogs}}
-                {{#if check_in}}
-                <div class="grid-item">{{dog_name}}</div>
-                <div class="grid-item">{{owner_first_name}}</div>
-                <div class="grid-item">{{owner_last_name}}</div>
+                {{#each activities}}
+                <div class="grid-item">{{Dog.dog_name}}</div>
                 <div class="grid-item">{{morning_walk}}</div>
                 <div class="grid-item">{{midday_walk}}</div>
                 <div class="grid-item">{{late_walk}}</div>
-                <div class="grid-item">{{meds}}</div>
-                <div class="grid-item">{{notes}}</div>
-                {{/if}}
+                <div class="grid-item">{{Dog.meds}}</div>
+                <div class="grid-item">{{Dog.notes}}</div>
                 {{/each}}
             </div>
         </div>
@@ -72,7 +66,7 @@
     .grid-container {
         display: grid;
         margin-top: 30px;
-        grid-template-columns: auto auto auto auto auto auto auto auto;
+        grid-template-columns: auto auto auto auto auto auto;
         background-color: lightgray;
     }
 
@@ -91,6 +85,14 @@
 
     }
 
+    #weather {
+        padding: 1px;
+        margin-top: 20px;
+        border: solid black;
+        text-align: center;
+        border-radius: 5px;
+    }
+
     hr {
         color: rgba(0, 0, 0, 0.8);
         border: none;
@@ -102,7 +104,17 @@
         /* Modern Browsers */
     }
 
+    .hide {
+        display: none;
+    }
+
     header {
         background-color: lightgray;
+    }
+
+    #time {
+        position: absolute;
+        display: inline;
+        right: -50px;
     }
 </style>
