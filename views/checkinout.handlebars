@@ -1,4 +1,3 @@
-
 <div class="container">
     <div class="row">
         <div class="col-12">
@@ -6,28 +5,20 @@
                 <div class="grid-header">Dog Name</div>
                 <div class="grid-header">Owner First Name</div>
                 <div class="grid-header">Owner Last Name</div>
-                <div class="grid-header">Meds?</div>
-                <div class="grid-header">Shots Records?</div>
-                <div class="grid-header">Notes</div>
+                <div class="grid-header">Status</div>
                 <div class="grid-header">Check-in</div>
                 <div class="grid-header">Check-out</div>
-                <div class="grid-header">Delete</div>
                 {{#each dogs}}
                 <div class="grid-item">{{dog_name}}</div>
                 <div class="grid-item">{{Owner.owner_first_name}}</div>
                 <div class="grid-item">{{Owner.owner_last_name}}</div>
-                <div class="grid-item">{{meds}}</div>
-                <div class="grid-item">{{shots}}</div>
-                <div class="grid-item">{{notes}}</div>
-                <button type="button" class="grid-item btn btn-success text-dark checkIn" data-id="{{id}}" data-check_in="{{check_in}}">Check In</button>
-                <button type="button" class="grid-item btn btn-primary text-dark checkOut" data-id="{{id}}" data-check_out="{{check_out}}">Check Out</button>
-                <button class="grid-item btn btn-danger text-dark deleteDog" data-id="{{id}}"
-                    data-check_in="{{delete}}">Delete Dog</button>
-
-                {{!-- {{else}}
-                <p>No dogs to display</p> --}}
-
+                <div class="grid-item">{{check_in}}</div>
+                <button type="button" class="grid-item btn btn-success text-dark checkIn" data-id="{{id}}"
+                    data-check_in="{{check_in}}">Check In</button>
+                <button type="button" class="grid-item btn btn-primary text-dark checkOut" data-id="{{id}}"
+                    data-check_out="{{check_out}}">Check Out</button>
                 {{/each}}
+
             </div>
         </div>
     </div>
@@ -35,12 +26,12 @@
 
 <script>
     $('.checkIn').click(function () {
-        // show when the button is clicked
-        toastr.success("Successfully checked in")
+        // refresh when the button is clicked
+        location.reload()
     })
     $('.checkOut').click(function () {
-        // show when the button is clicked
-        toastr.success("Successfully checked out")
+        // refresh when the button is clicked
+        location.reload()
     })
 </script>
 
@@ -48,7 +39,7 @@
     .grid-container {
         display: grid;
         margin-top: 30px;
-        grid-template-columns: auto auto auto auto auto auto auto auto auto;
+        grid-template-columns: auto auto auto auto auto auto;
         background-color: lightgray;
     }
 

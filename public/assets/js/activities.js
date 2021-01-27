@@ -1,8 +1,9 @@
 $(document).ready(function () {
 
-    $(".updateActivity").on("click", function (event) {
+    $(".updateActivity").click(function (event) {
         event.preventDefault()
         getSelectedCheckBoxValues()
+        // location.reload()
     })
 
     function getSelectedCheckBoxValues() {
