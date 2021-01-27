@@ -1,9 +1,9 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
-    $(".updateActivity").click(function (event) {
+    $(".updateActivity").click(function(event) {
         event.preventDefault()
         getSelectedCheckBoxValues()
-        // location.reload()
+            // location.reload()
     })
 
     function getSelectedCheckBoxValues() {
@@ -15,26 +15,22 @@ $(document).ready(function () {
         const notes = document.querySelectorAll(".notes");
         let values = [];
         let i = 0
-        
+
         console.log(Array.from(morningWalkCheckboxes[1]))
 
         morningWalkCheckboxes.forEach((checkbox) => {
-            // var id = data[i]["dataValues"]["DogId"]
-            // console.log("id", id)
+            var id = dogIds[i].getAttribute("value") - 1
+            console.log("id", id)
             const updateActivities = {
                 morning_walk: checkbox.checked,
                 midday_walk: middayWalkCheckboxes[i].checked,
                 late_walk: lateWalkCheckboxes[i].checked,
                 DogId: dogIds[i].getAttribute("value"),
             }
-            
+
             $.ajax("/api/activities/" + id, {
                 type: "PUT",
                 data: updateActivities,
-            })
-            .then(function (data) {
-                console.log("dog", Dog)
-                console.log("datavalues", data.dataValues)
             })
             i++
         })
