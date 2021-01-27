@@ -5,14 +5,20 @@ const Dog = require("../models/dog");
 // Routes
 // =============================================================
 module.exports = function (app) {
-    //Finds all dogs but maybe doesn't do anything with the results? Maybe something calls this
-    app.get("/api/dogs/", function (req, res) {
 
-        db.Dog.findAll({})
+    //Finds all dogs, displays as json
+    app.get("/api/dogs/", function (req, res) {
+        db.Dog.findAll({
+            order: [
+                ["dog_name", "ASC"],
+            ],
+        })
             .then(function (dbDog) {
                 res.json(dbDog)
+                console.log(dbDog)
             })
     })
+
     //post route adds new dog to dogs table
     app.post("/api/dogs", function (req, res) {
         db.Dog.create({
@@ -30,7 +36,10 @@ module.exports = function (app) {
     //dogs html route. Gets dogs from table, renders dogs view with this data
     app.get("/dogs", function (req, res) {
         db.Dog.findAll({
-            include: [db.Owner]
+            include: [db.Owner],
+            order: [
+                ["dog_name", "ASC"],
+            ],
         })
             .then(function (data) {
                 var hbsObject = {
@@ -54,30 +63,30 @@ module.exports = function (app) {
                 res.render("checkinout", hbsObject)
             })
     })
-    
+
     //api to check printout
     app.get("/api/checkinout", function (req, res) {
         db.Dog.findAll({
             include: [db.Owner]
         })
-        .then(function (dbDog) {
-            console.log("dbdog", dbDog)
-            res.json(dbDog)
+            .then(function (dbDog) {
+                console.log("dbdog", dbDog)
+                res.json(dbDog)
             })
     })
-    
-     //dogs html route. Gets dogs from table, renders dogs view with this data
-    app.get("/dogs", function(req, res) {
-            db.Dog.findAll({
-                include: [db.Owner]
+
+    //dogs html route. Gets dogs from table, renders dogs view with this data
+    app.get("/dogs", function (req, res) {
+        db.Dog.findAll({
+            include: [db.Owner]
+        })
+            .then(function (data) {
+                var hbsObject = {
+                    dogs: data
+                }
+                console.log(hbsObject)
+                res.render("dogs", hbsObject)
             })
-                .then(function(data) {
-                    var hbsObject = {
-                        dogs: data
-                    }
-                    console.log(hbsObject)
-                    res.render("dogs", hbsObject)
-                })
 
     })
     //post route adds new dog do dogs table
