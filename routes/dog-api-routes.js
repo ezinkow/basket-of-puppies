@@ -1,6 +1,6 @@
 // Requiring our models
 var db = require("../models");
-const dog = require("../models/dog");
+const Dog = require("../models/dog");
 
 // Routes
 // =============================================================
@@ -63,13 +63,6 @@ module.exports = function (app) {
         .then(function (dbDog) {
             console.log("dbdog", dbDog)
             res.json(dbDog)
-            })
-
-        db.Dog.findAll({
-            include: [db.Owner]
-        })
-            .then(function (dbDog) {
-                res.json(dbDog)
             })
     })
     
