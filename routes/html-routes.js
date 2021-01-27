@@ -32,14 +32,21 @@ module.exports = function (app) {
 
     // Here we've add our isAuthenticated middleware to this route.
     // If a user who is not logged in tries to access this route they will be redirected to the signup page
-    app.get("/index", isAuthenticated, function (req, res) {
-        res.render("../views/index.handlebars");
+
+    app.get("/index", isAuthenticated, function(req, res) {
+        res.render("index");
+
     })
     
     //added route to get around having to login for testing purposes
-    app.get("/admin", function (req, res) {
-        db.Activity.findAll({
-            include: [db.Dog]
+====
+    app.get("/admin", function(req, res) {
+            res.render("index");
+        })
+        //at addowner, render addowner
+    app.get("/addowner", function(req, res) {
+            res.render("addowner")
+
         })
         .then(function (data) {
             var hbsObject = {

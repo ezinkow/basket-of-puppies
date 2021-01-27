@@ -4,24 +4,30 @@
                         <form class="addDogToOwner">
                                 <label for="name">Dog name:</label><br>
                                 <input type="text" id="dog_name" name="dog_name"><br>
-                                <p>Owner Name:</p>
-                                <p value={{id}}>
-                                    {{#each owners}}
-                                    {{owner_name}}
-                                    {{/each}}
-                                    </p><br>
+
+                                <p id="owner-name">Owner Name:
+                                        {{#each owners}}
+                                        <option value="{{id}}">
+                                                {{owner_first_name}} {{owner_last_name}}
+                                        </option>
+                                        {{/each}}
+                                </p>
+
                                 <label for="shots">Up to date on shots?</label><br>
-                                <select id="shots" name="shots" value="Yes" style=style="width:20px; height:20px"><br>
+                                <select id="shots" name="shots" value="Yes" style=style="width:20px; height:20px"
+                                        placeholder="Shots?"><br>
+                                        <option value="" disabled selected>Shots?</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
                                 </select><br>
-                                <label for="meds">Does dog require medicine?</label><br>
-                                <select id="meds" name="meds"><br>
-                                        <option value="Yes">Yes</option>
-                                        <option value="No">No</option>
-                                </select><br><br>
+                                <label for="meds">Medicine information:</label><br>
+                                <input type="textarea" id="meds" name="meds">
+                                </select><br>
+                                <label for="notes">Notes:</label><br>
+                                <input type="textarea" id="notes" name="notes"><br><br>
                                 <input type="submit" value="Add Dog!" class="btn btn-info">
-                                <button class="invisible btn btn-primary">Add another dog for this owner></button></span>
+                                <button class="invisible btn btn-primary addAnotherDog">Add another dog for this
+                                        owner></button></span>
                         </form>
                 </div>
                 <div class="col-7">
@@ -29,3 +35,27 @@
                 </div>
         </div>
 </div>
+
+<script>
+        $(".addDogToOwner").on("submit", function(event) {
+        event.preventDefault()
+        $(".addAnotherDog").removeClass("invisible")
+        const newDog = {
+            dog_name: $("#dog_name").val().trim(),
+            shots: $("#shots").val().trim(),
+            meds: $("#meds").val().trim(),
+            notes: $("#notes").val().trim(),
+            OwnerId: $("#owner-select").val().trim()
+        }
+        console.log(newDog)
+
+        $.ajax("/api/dogs", {
+            type: "POST",
+            data: newDog
+        }).then(
+            function(res) {
+                location.href = "/"
+            })
+    })
+
+</script>

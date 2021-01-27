@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+
     // Display date and time
 
     var update = function () {
@@ -7,6 +8,12 @@ $(document).ready(function () {
         today.html(date.format('dddd, MMMM Do, YYYY'));
         time.html(date.format('h:mm a'))
     };
+=======
+
+    
+    
+   
+
 
     $(document).ready(function () {
         today = $('#date')
@@ -15,7 +22,14 @@ $(document).ready(function () {
         setInterval(update, 1000);
     });
 
+
     //Display weather
+=======
+
+    
+
+    
+
 
     $(".weatherBtn").on("click", function displayWeather() {
         $("#weather").removeClass("hide")

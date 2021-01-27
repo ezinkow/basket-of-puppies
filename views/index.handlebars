@@ -49,8 +49,13 @@
                 <div class="grid-header">Meds?</div>
                 <div class="grid-header">Notes</div>
 
-                {{#each activities}}
-                <div class="grid-item">{{Dog.dog_name}}</div>
+
+                {{#each dogs}}
+                {{#if check_in}}
+                <div class="grid-item">{{dog_name}}</div>
+                <div class="grid-item">{{Owner.owner_first_name}}</div>
+                <div class="grid-item">{{Owner.owner_last_name}}</div>
+
                 <div class="grid-item">{{morning_walk}}</div>
                 <div class="grid-item">{{midday_walk}}</div>
                 <div class="grid-item">{{late_walk}}</div>

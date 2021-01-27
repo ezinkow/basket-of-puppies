@@ -16,10 +16,12 @@
     <div class="grid-header">Notes</div>
     <div class="grid-header">Check out</div>
 
-    {{#each activities}}
-    {{!-- {{#if Dogs.check_in}} --}}
-    <div class="grid-item">{{Dog.dog_name}}</div>
-    {{!-- <div class="grid-item">{{Owner.owner_first_name}} {{owner_last_name}}</div> --}}
+
+    {{#each dogs}}
+    {{#if check_in}}
+    <div class="grid-item">{{dog_name}}</div>
+    <div class="grid-item">{{Owner.owner_first_name}} {{Owner.owner_last_name}}</div>
+
     <div class="grid-item"><input type="checkbox" class="morning_walk" name="morning_walk" value="true"
             style="width:100%; height:100%">{{morning_walk}}</div>
     <div class="grid-item">
