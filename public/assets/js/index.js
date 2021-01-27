@@ -1,4 +1,7 @@
 $(document).ready(function () {
+
+
+    
     
     // Display today's date //
 
@@ -8,7 +11,7 @@ $(document).ready(function () {
     $("#date").html(today)
 
 
-    //===========
+    
 
     //Weather
 

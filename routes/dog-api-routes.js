@@ -14,20 +14,20 @@ module.exports = function (app) {
                 res.json(dbDog)
             })
     })
-    //dogs html route. Gets dogs from table, renders dogs view with this data
-    app.get("/dogs", function (req, res) {
-        db.Dog.findAll({
-            include: [db.Owner]
-        })
-            .then(function (data) {
-                var hbsObject = {
-                    dogs: data,
-                    // owners: data
-                }
-                console.log("dogs hbsobject", data)
-                // console.log("data", data)
-                res.render("dogs", hbsObject)
+    
+     //dogs html route. Gets dogs from table, renders dogs view with this data
+    app.get("/dogs", function(req, res) {
+            db.Dog.findAll({
+                include: [db.Owner]
             })
+                .then(function(data) {
+                    var hbsObject = {
+                        dogs: data
+                    }
+                    console.log(hbsObject)
+                    res.render("dogs", hbsObject)
+                })
+
     })
     //post route adds new dog do dogs table
     app.post("/api/dogs", function (req, res) {
@@ -37,6 +37,7 @@ module.exports = function (app) {
             meds: req.body.meds,
             notes: req.body.notes,
             OwnerId: req.body.OwnerId
+
         })
             .then(function (dbDog) {
                 console.log("dbdog", dbDog)
@@ -72,4 +73,20 @@ module.exports = function (app) {
             res.json(dbDogs);
         });
     });
+
+        //who knows man
+        app.get("/adddogtoowner", function (req, res) {
+            db.Owner.findAll({
+                limit: 1,
+                order: [
+                    ['createdAt', 'DESC']
+                ]
+            }).then(function (data) {
+                var hbsObject = {
+                    owners: data
+                }
+                console.log("owners", data)
+                res.render("adddogtoowner", hbsObject)
+            })
+        })
 }

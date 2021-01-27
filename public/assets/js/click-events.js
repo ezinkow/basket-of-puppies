@@ -19,17 +19,6 @@ $(document).ready(function() {
         location.href = "/dogs"
     })
 
-    // not sure this button exists
-    // $(".updateDogActivity").on("click", function(event) {
-    //     event.preventDefault();
-    //     location.href = "/activities"
-    // })
-
-    $(".addDogToOwner").on("click", function(event) {
-        event.preventDefault()
-        location.href = "/adddogtoowner"
-    })
-
     $(".quickCheckIn").on("click", function(event) {
         event.preventDefault()
         location.href = "/dogs"
@@ -61,10 +50,13 @@ $(document).ready(function() {
     function checkInDog() {
         var id = $(this).data("id");
         const newActivityRow = {
-            DogId: id
+            DogId: id,
+            // morning_walk: false,
+            // midday_walk: false,
+            // late_walk: false
         }
         console.log("clicked check-in button");
-        console.log(id);
+        console.log("newactivrow", newActivityRow);
 
         var id = $(this).data("id");
         $.ajax("/api/dogs/" + id, {

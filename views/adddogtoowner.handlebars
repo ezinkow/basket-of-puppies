@@ -4,6 +4,7 @@
                         <form class="addDogToOwner">
                                 <label for="name">Dog name:</label><br>
                                 <input type="text" id="dog_name" name="dog_name"><br>
+
                                 <p id="owner-name">Owner Name:
                                         {{#each owners}}
                                         <option value="{{id}}">
@@ -11,6 +12,7 @@
                                         </option>
                                         {{/each}}
                                 </p>
+
                                 <label for="shots">Up to date on shots?</label><br>
                                 <select id="shots" name="shots" value="Yes" style=style="width:20px; height:20px"
                                         placeholder="Shots?"><br>

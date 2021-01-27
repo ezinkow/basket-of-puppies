@@ -6,7 +6,7 @@ var db = require("../models");
 module.exports = function (app) {
     app.get("/activities", function (req, res) {
         db.Activity.findAll({
-            include: [db.Dog]
+            // include: [db.Dog],
         })
             .then(function (data) {
                 var hbsObject = {
@@ -17,33 +17,26 @@ module.exports = function (app) {
                 res.render("activities", hbsObject)
             })
     })
-    // app.get("/activities", function (req, res) {
-    //     db.Dog.findAll({
-    //         // include: [db.Activity]
-    //     })
-    //         .then(function (data) {
-    //             var hbsObject = {
-    //                 dogs: data,
-    //                 // activities: data
-    //             }
-    //             console.log(hbsObject)
-    //             res.render("activities", hbsObject)
-    //         console.log("hbs object", hbsObject)
-    //         })
-    // })
+    app.get("/api/activities", function (req, res) {
+        db.Activity.findAll({
+            include: [db.Dog],
+        })
+        .then(function(dbActivity) {
+            console.log("dbActivity", dbActivity)
+            res.json(dbActivity)
+        })
+    })
     
     app.post("/api/activities", function(req, res) {
         console.log("req body", req.body)
         db.Activity.create({
-            morning_walk: "",
-            midday_walk: "",
-            late_walk: "",
             DogId: req.body.DogId
         })
         .then(function(dbActivity) {
             console.log("dbActivity", dbActivity)
             res.json(dbActivity)
         })
+
         //delete call to api/activities requires an input Dogid. Removes ALL rows with same Dogid as input
     app.delete("/api/activities/:id", function(req, res) {
         db.Activity.destroy({
