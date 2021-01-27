@@ -34,15 +34,34 @@ module.exports = function (app) {
     // If a user who is not logged in tries to access this route they will be redirected to the signup page
 
     app.get("/index", isAuthenticated, function (req, res) {
-        res.render("index");
-
+        db.Dog.findAll({
+            include: [db.Owner]
+        })
+            .then(function (data) {
+                var hbsObject = {
+                    dogs: data
+                }
+                console.log(hbsObject)
+                res.render("index", hbsObject)
+            })
     })
+
 
     //added route to get around having to login for testing purposes
 
     app.get("/admin", function (req, res) {
-        res.render("index");
+        db.Dog.findAll({
+            include: [db.Owner]
+        })
+            .then(function (data) {
+                var hbsObject = {
+                    dogs: data
+                }
+                console.log(hbsObject)
+                res.render("index", hbsObject)
+            })
     })
+
     //at addowner, render addowner
     app.get("/addowner", function (req, res) {
         res.render("addowner")

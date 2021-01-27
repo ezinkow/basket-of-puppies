@@ -17,27 +17,25 @@
     <div class="grid-header">Check out</div>
 
 
-    {{#each dogs}}
-    {{#if check_in}}
-    <div class="grid-item">{{dog_name}}</div>
-    <div class="grid-item">{{Owner.owner_first_name}} {{Owner.owner_last_name}}</div>
-
-    <div class="grid-item"><input type="checkbox" class="morning_walk" name="morning_walk" value="true"
-            style="width:100%; height:100%">{{morning_walk}}</div>
-    <div class="grid-item">
-        <input type="checkbox" class="midday_walk" name="midday_walk" value="true"
-            style="width:100%; height:100%">{{midday_walk}}
+    {{#each activities}}
+    <div class="grid-item">{{Dog.dog_name}}</div>
+    <div class="grid-item"><input type="checkbox" class="morning_walk" name="morning_walk" value="{{morning_walk}}"
+            style="width:100%; height:100%" data-id="{{id}}">
     </div>
     <div class="grid-item">
-        <input type="checkbox" class="late_walk" name="late_walk" value="true"
-            style="width:100%; height:100%">{{late_walk}}
+        <input type="checkbox" class="midday_walk" name="midday_walk" value="{{midday_walk}}"
+            style="width:100%; height:100%">
+    </div>
+    <div class="grid-item">
+        <input type="checkbox" class="late_walk" name="late_walk" value="{{late_walk}}" style="width:100%; height:100%">
     </div>
     <div class="grid-item meds">{{Dog.meds}}</div>
-    <div class="grid-item"><textarea class="notes" name="notes" style="width:100%;height:100%" placeholder="{{Dog.notes}}"></textarea></div>
+    <div class="grid-item"><textarea class="notes" name="notes" style="width:100%;height:100%"
+            placeholder="{{Dog.notes}}"></textarea>
+    </div>
     <button type="button" class="grid-item btn btn-primary text-dark checkOut" data-id="{{id}}"
         data-check_out="{{check_out}}">Check Out</button>
     <div value={{id}} class="dogId" style="display:none"></div>
-    {{/if}}
     {{/each}}
 
 </form>
