@@ -30,7 +30,8 @@ module.exports = function(app) {
                     res.json(dbOwner)
                 })
         })
-        //who knows man
+
+        //auto fills owner as last owner added to add dog to last owner added
     app.get("/adddogtoowner", function(req, res) {
         db.Owner.findAll({
             limit: 1,
