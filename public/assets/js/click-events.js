@@ -3,6 +3,11 @@ $(document).ready(function() {
         event.preventDefault();
         location.href = "/adddog"
     })
+    
+    $(".addDogToOwner").on("click", function(event) {
+        event.preventDefault();
+        location.href = "/addDogToOwner"
+    })
 
     $(".addNewOwner").on("click", function(event) {
         event.preventDefault();

@@ -1,61 +1,82 @@
 <div class="container">
         <div class="row">
                 <div class="col-5">
-                        <form class="addDogToOwner">
+                        <form class="addDogToOwnerForm">
                                 <label for="name">Dog name:</label><br>
-                                <input type="text" id="dog_name" name="dog_name"><br>
-
-                                <p id="owner-name">Owner Name:
+                                <input type="text" id="dog_name" name="dog_name"><br><br>
+                                <label for="owner-select">Owner Name:</label><br>
+                                <select id="owner-select" name="owner-select" placeholder="Owner Name">
                                         {{#each owners}}
                                         <option value="{{id}}">
                                                 {{owner_first_name}} {{owner_last_name}}
                                         </option>
                                         {{/each}}
-                                </p>
 
+                                </select><br><br>
                                 <label for="shots">Up to date on shots?</label><br>
                                 <select id="shots" name="shots" value="Yes" style=style="width:20px; height:20px"
                                         placeholder="Shots?"><br>
-                                        <option value="" disabled selected>Shots?</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
-                                </select><br>
+                                </select><br><br>
                                 <label for="meds">Medicine information:</label><br>
-                                <input type="textarea" id="meds" name="meds">
-                                </select><br>
+                                <textarea rows="2" cols="50" id="meds" name="meds"></textarea><br><br>
                                 <label for="notes">Notes:</label><br>
-                                <input type="textarea" id="notes" name="notes"><br><br>
-                                <input type="submit" value="Add Dog!" class="btn btn-info">
+                                <textarea rows="4" cols="50" id="notes" name="notes"></textarea><br><br>
+                                <input type="submit" id="addDogToOwner" value="Add Dog!" class="btn btn-info">
                                 <button class="invisible btn btn-primary addAnotherDog">Add another dog for this
-                                        owner></button></span>
+                                        owner</button></span>
                         </form>
-                </div>
-                <div class="col-7">
-                        <img class="mb-4" src="assets/img/puppy3.png" alt="puppy">
                 </div>
         </div>
 </div>
 
-<script>
-        $(".addDogToOwner").on("submit", function(event) {
-        event.preventDefault()
-        $(".addAnotherDog").removeClass("invisible")
-        const newDog = {
-            dog_name: $("#dog_name").val().trim(),
-            shots: $("#shots").val().trim(),
-            meds: $("#meds").val().trim(),
-            notes: $("#notes").val().trim(),
-            OwnerId: $("#owner-select").val().trim()
+<style>
+        body {
+                background-image: url("/assets/img/basketlogo1.png");
         }
-        console.log(newDog)
 
-        $.ajax("/api/dogs", {
-            type: "POST",
-            data: newDog
-        }).then(
-            function(res) {
-                location.href = "/"
-            })
-    })
+        form {
+                background: rgb(32, 48, 111, 0.4);
+                padding: 30px;
+                border-radius: 30px;
+                font-weight: 500;
+        }
+
+        label {
+                background: lightgray;
+                border-radius: 5px;
+                padding-left: 10px;
+                padding-right: 10px;
+        }
+
+        p {
+                background: white;
+                width: 75%;
+                height: 30px;
+        }
+</style>
+
+<script>
+        $(".addDogToOwner").on("submit", function (event) {
+                event.preventDefault()
+                $(".addAnotherDog").removeClass("invisible")
+                const newDog = {
+                        dog_name: $("#dog_name").val().trim(),
+                        shots: $("#shots").val().trim(),
+                        meds: $("#meds").val().trim(),
+                        notes: $("#notes").val().trim(),
+                        OwnerId: $("#owner-select").val().trim()
+                }
+                console.log(newDog)
+
+                $.ajax("/api/dogs", {
+                        type: "POST",
+                        data: newDog
+                }).then(
+                        function (res) {
+                                location.href = "/"
+                        })
+        })
 
 </script>

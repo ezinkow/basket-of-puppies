@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    //buttons that do more than just navigate to a page
+    //click events for below functions
     $(".checkIn").on("click", checkInDog)
     $(".checkOut").on("click", checkOutDog)
     $(".deleteDog").on("click", deleteDog)
@@ -12,8 +12,6 @@ $(document).ready(function () {
         const newActivityRow = {
             DogId: id,
         }
-        console.log("clicked check-in button");
-        console.log("newactivrow", newActivityRow);
 
         var id = $(this).data("id");
         $.ajax("/api/dogs/" + id, {
@@ -32,13 +30,13 @@ $(document).ready(function () {
     //does a put request 
     function checkOutDog() {
         var id = $(this).data("id");
-        console.log("id:", id);
+        
 
         const activityRowToDelete = {
             DogId: id
         }
-        console.log("clicked check-out button")
-        var id = $(this).data("id");
+        
+        var id = $(this).data("id")
         $.ajax("/api/dogs/" + id, {
             method: "PUT",
             data: {
@@ -55,12 +53,11 @@ $(document).ready(function () {
 
     function deleteDog() {
         var id = $(this).data("id");
-        console.log("id", id);
 
         const activityRowToDelete = {
             DogId: id
         }
-        console.log("clicked delete button")
+        
         var id = $(this).data("id");
         $.ajax("/api/dogs/" + id, {
             method: "DELETE",

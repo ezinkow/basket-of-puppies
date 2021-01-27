@@ -12,7 +12,6 @@ $(document).ready(function() {
             check_in: false,
             OwnerId: $("#owner-select").val().trim()
         }
-        console.log(newDog)
 
         $.ajax("/api/dogs", {
             type: "POST",
@@ -23,22 +22,21 @@ $(document).ready(function() {
             })
     })
 
-    $(".addDogToOwner").on("submit", function(event) {
+    $(".addDogToOwnerForm").on("submit", function(event) {
         event.preventDefault()
-        location.href = "/adddogtoowner"
-        const newDogToOwner = {
+
+        const newDog = {
             dog_name: $("#dog_name").val().trim(),
             meds: $("#meds").val().trim(),
             shots: $("#shots").val().trim(),
-            check_in: false,
             notes: $("#notes").val().trim(),
+            check_in: false,
             OwnerId: $("#owner-select").val().trim()
         }
-        console.log(newDogToOwner)
 
         $.ajax("/api/dogs", {
             type: "POST",
-            data: newDogToOwner
+            data: newDog
         }).then(
             function(res) {
                 location.href = "/"
