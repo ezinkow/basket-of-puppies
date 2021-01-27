@@ -1,15 +1,7 @@
 $(document).ready(function () {
 
-    // $("#checkbox").text($("#shots").val())
 
-    // $("#shots").on("change", function() {
-    //     if ($(this).is(":checked")) {
-    //         $(this).attr("value", "true")
-    //     } else {
-    //         $(this).attr("value", "false")
-    //     }
-    //     $("#checkbox").text($("#shots").val())
-    // })
+    
     
     // Display today's date //
 
@@ -19,7 +11,7 @@ $(document).ready(function () {
     $("#date").html(today)
 
 
-    //===========
+    
 
     //Weather
 
