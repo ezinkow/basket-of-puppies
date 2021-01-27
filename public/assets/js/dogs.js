@@ -32,7 +32,7 @@ $(document).ready(function () {
     //does a put request 
     function checkOutDog() {
         var id = $(this).data("id");
-        console.log("id", id);
+        console.log("id:", id);
 
         const activityRowToDelete = {
             DogId: id
