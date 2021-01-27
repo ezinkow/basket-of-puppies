@@ -53,6 +53,7 @@ module.exports = function (app) {
         res.render("daycare")
     })
 
+
     //at adddog query database for all owners, then render dog view + data
     app.get("/adddog", function (req, res) {
         db.Owner.findAll({})

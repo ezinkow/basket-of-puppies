@@ -8,8 +8,8 @@ $(document).ready(function() {
             dog_name: $("#dog_name").val().trim(),
             meds: $("#meds").val().trim(),
             shots: $("#shots").val().trim(),
-            check_in: false,
             notes: $("#notes").val().trim(),
+            check_in: false,
             OwnerId: $("#owner-select").val().trim()
         }
         console.log(newDog)
