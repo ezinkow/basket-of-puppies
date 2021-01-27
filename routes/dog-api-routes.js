@@ -64,8 +64,7 @@ module.exports = function (app) {
             console.log("dbdog", dbDog)
             res.json(dbDog)
             })
-    })
-=======
+
         db.Dog.findAll({
             include: [db.Owner]
         })
