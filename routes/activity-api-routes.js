@@ -13,7 +13,6 @@ module.exports = function (app) {
                     activities: data
                     // dogid: dogId
                 }
-                // console.log(hbsObject)
                 res.render("activities", hbsObject)
             })
     })
@@ -23,18 +22,17 @@ module.exports = function (app) {
             include: [db.Dog],
         })
             .then(function (dbActivity) {
-                console.log("dbActivity", dbActivity)
                 res.json(dbActivity)
             })
     })
 
     app.post("/api/activities", function (req, res) {
-        console.log("req body", req.body)
+    
         db.Activity.create({
             DogId: req.body.DogId
         })
             .then(function (dbActivity) {
-                console.log("dbActivity", dbActivity)
+            
                 res.json(dbActivity)
             })
 
@@ -52,8 +50,8 @@ module.exports = function (app) {
     });
 
     app.put("/api/activities/:id", function (req, res) {
-        console.log("body", req.body)
-        console.log("params", req.params)
+    
+    
         db.Activity.update({
             morning_walk: req.body.morning_walk,
             midday_walk: req.body.midday_walk,

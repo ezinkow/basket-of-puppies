@@ -15,7 +15,6 @@ module.exports = function (app) {
         })
             .then(function (dbDog) {
                 res.json(dbDog)
-                console.log(dbDog)
             })
     })
 
@@ -29,7 +28,6 @@ module.exports = function (app) {
             OwnerId: req.body.OwnerId
         })
             .then(function (dbDog) {
-                console.log("dbdog", dbDog)
                 res.json(dbDog)
             })
     })
@@ -45,7 +43,6 @@ module.exports = function (app) {
                 var hbsObject = {
                     dogs: data
                 }
-                console.log(hbsObject)
                 res.render("dogs", hbsObject)
             })
     })
@@ -59,7 +56,6 @@ module.exports = function (app) {
                 var hbsObject = {
                     dogs: data
                 }
-                console.log("checkinout obj", hbsObject)
                 res.render("checkinout", hbsObject)
             })
     })
@@ -70,7 +66,6 @@ module.exports = function (app) {
             include: [db.Owner]
         })
             .then(function (dbDog) {
-                console.log("dbdog", dbDog)
                 res.json(dbDog)
             })
     })
@@ -84,7 +79,6 @@ module.exports = function (app) {
                 var hbsObject = {
                     dogs: data
                 }
-                console.log(hbsObject)
                 res.render("dogs", hbsObject)
             })
 
@@ -97,10 +91,8 @@ module.exports = function (app) {
             meds: req.body.meds,
             notes: req.body.notes,
             OwnerId: req.body.OwnerId
-
         })
             .then(function (dbDog) {
-                console.log("dbdog", dbDog)
                 res.json(dbDog)
             })
     })
@@ -108,10 +100,6 @@ module.exports = function (app) {
 
     //put route that updates checkin status of dog at input id. Can be used for check in or out
     app.put("/api/dogs/:id", function (req, res) {
-        console.log("test?", req.body);
-        console.log("id", req.body.id);
-        console.log("check in status", req.body.check_in);
-
         db.Dog.update({
             check_in: req.body.check_in
         }, {
@@ -126,7 +114,6 @@ module.exports = function (app) {
     //delete route deletes dog at input id
     app.delete("/api/dogs/:id", function (req, res) {
         db.Activity.destroy({
-
             where: {
                 id: req.params.id
             }
@@ -135,7 +122,7 @@ module.exports = function (app) {
         });
     });
 
-    //who knows man
+    //adds dog to last owner added
     app.get("/adddogtoowner", function (req, res) {
         db.Owner.findAll({
             limit: 1,
@@ -146,7 +133,6 @@ module.exports = function (app) {
             var hbsObject = {
                 owners: data
             }
-            console.log("owners", data)
             res.render("adddogtoowner", hbsObject)
         })
     })

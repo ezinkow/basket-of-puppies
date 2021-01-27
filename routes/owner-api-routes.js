@@ -17,7 +17,6 @@ module.exports = function (app) {
         })
             .then(function (dbOwner) {
                 res.json(dbOwner)
-                console.log(dbOwner)
             })
 
     })
@@ -76,7 +75,6 @@ module.exports = function (app) {
         })
             .then(function (dbOwner) {
                 res.json(dbOwner)
-                console.log(dbOwner)
             })
 
     })
