@@ -9,10 +9,12 @@ module.exports = function (app) {
             include: [db.Dog]
         })
             .then(function(data) {
+                console.log("data:", data[0]["dataValues"]["DogId"])
                 var hbsObject = {
                     activities: data
+                    // dogid: dogId
                 }
-                console.log(hbsObject)
+                // console.log(hbsObject)
                 res.render("activities", hbsObject)
             })
         })

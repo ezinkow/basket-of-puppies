@@ -7,38 +7,34 @@ $(document).ready(function () {
     })
 
     function getSelectedCheckBoxValues() {
-        const morningWalkCheckboxes = document.querySelectorAll(`.morning_walk`);
-        const middayWalkCheckboxes = document.querySelectorAll(`.midday_walk`);
-        const lateWalkCheckboxes = document.querySelectorAll(`.late_walk`);
-        const dogIds = document.querySelectorAll(`.dogId`);
-        const meds = document.querySelectorAll(`.meds`);
-        const notes = document.querySelectorAll(`.notes`);
+        const morningWalkCheckboxes = document.querySelectorAll(".morning_walk");
+        const middayWalkCheckboxes = document.querySelectorAll(".midday_walk");
+        const lateWalkCheckboxes = document.querySelectorAll(".late_walk");
+        const dogIds = document.querySelectorAll(".dogId");
+        const meds = document.querySelectorAll(".meds");
+        const notes = document.querySelectorAll(".notes");
         let values = [];
         let i = 0
-        morningWalkCheckboxes.forEach((checkbox) => {
+        
+        console.log(Array.from(morningWalkCheckboxes[1]))
 
-            console.log("hello")
+        morningWalkCheckboxes.forEach((checkbox) => {
+            // var id = data[i]["dataValues"]["DogId"]
+            // console.log("id", id)
             const updateActivities = {
                 morning_walk: checkbox.checked,
                 midday_walk: middayWalkCheckboxes[i].checked,
                 late_walk: lateWalkCheckboxes[i].checked,
                 DogId: dogIds[i].getAttribute("value"),
-
             }
-
-            const updateDogs = {
-                med_info: meds[i].textContent,
-                notes: notes[i].value
-            }
-
-            $.ajax("/api/activities", {
-                type: "POST",
-                data: updateActivities
-            }).then($.ajax("/api/dogs", {
-                type: "POST",
-                data: updateDogs
-            })).then(function (data) {
-                console.log("data", data)
+            
+            $.ajax("/api/activities/" + id, {
+                type: "PUT",
+                data: updateActivities,
+            })
+            .then(function (data) {
+                console.log("dog", Dog)
+                console.log("datavalues", data.dataValues)
             })
             i++
         })
