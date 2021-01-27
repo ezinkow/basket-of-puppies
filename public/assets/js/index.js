@@ -1,21 +1,38 @@
 $(document).ready(function () {
 
 
+    // Display date and time
+
+    var update = function () {
+        date = moment(new Date())
+        today.html(date.format('dddd, MMMM Do, YYYY'));
+        time.html(date.format('h:mm a'))
+    };
+=======
+
     
     
-    // Display today's date //
+   
 
-    var day = moment().format('dddd'); 
-    var date = moment().format('MMMM Do, YYYY');
-    var today = "Today is " + day + ", " + date
-    $("#date").html(today)
 
+    $(document).ready(function () {
+        today = $('#date')
+        time = $('#time')
+        update();
+        setInterval(update, 1000);
+    });
+
+
+    //Display weather
+=======
 
     
 
-    //Weather
+    
+
 
     $(".weatherBtn").on("click", function displayWeather() {
+        $("#weather").removeClass("hide")
         $("#weather").html("")
         var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=Chicago&units=imperial&appid=da5a0b2df3ad3a18dae3207cc7ca31bf";
         $.ajax({

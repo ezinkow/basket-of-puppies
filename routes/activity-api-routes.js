@@ -4,19 +4,19 @@ var db = require("../models");
 // Routes
 // =============================================================
 module.exports = function (app) {
-    app.get("/activities", function (req, res) {
+    app.get("/activities", function(req, res) {
         db.Activity.findAll({
-            // include: [db.Dog],
+            include: [db.Dog]
         })
-            .then(function (data) {
+            .then(function(data) {
                 var hbsObject = {
-                    activities: data,
-                    // dogs: data
+                    activities: data
                 }
-                console.log("data", data)
+                console.log(hbsObject)
                 res.render("activities", hbsObject)
             })
-    })
+        })
+
     app.get("/api/activities", function (req, res) {
         db.Activity.findAll({
             include: [db.Dog],

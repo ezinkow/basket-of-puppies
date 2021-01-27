@@ -18,20 +18,18 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       defaultValue: "No",
     },
-
+    //notes
+    notes: {
+      type: DataTypes.STRING,
+    },
     //check in
     check_in: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
     },
-
-    //notes
-    notes: {
-      type: DataTypes.STRING,
-    }
   });
 
-  Dog.associate = function(models) {
+  Dog.associate = function (models) {
     // We're saying that a Dog should belong to an Owner
     // A Dog can't be added without an Owner due to the foreign key constraint
     Dog.belongsTo(models.Owner, {

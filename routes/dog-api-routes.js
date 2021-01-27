@@ -7,6 +7,65 @@ const dog = require("../models/dog");
 module.exports = function (app) {
     //Finds all dogs but maybe doesn't do anything with the results? Maybe something calls this
     app.get("/api/dogs/", function (req, res) {
+
+        db.Dog.findAll({})
+            .then(function (dbDog) {
+                res.json(dbDog)
+            })
+    })
+    //post route adds new dog to dogs table
+    app.post("/api/dogs", function (req, res) {
+        db.Dog.create({
+            dog_name: req.body.dog_name,
+            shots: req.body.shots,
+            meds: req.body.meds,
+            notes: req.body.notes,
+            OwnerId: req.body.OwnerId
+        })
+            .then(function (dbDog) {
+                console.log("dbdog", dbDog)
+                res.json(dbDog)
+            })
+    })
+    //dogs html route. Gets dogs from table, renders dogs view with this data
+    app.get("/dogs", function (req, res) {
+        db.Dog.findAll({
+            include: [db.Owner]
+        })
+            .then(function (data) {
+                var hbsObject = {
+                    dogs: data
+                }
+                console.log(hbsObject)
+                res.render("dogs", hbsObject)
+            })
+    })
+
+    //quick checkin/checkout page
+    app.get("/checkinout", function (req, res) {
+        db.Dog.findAll({
+            include: [db.Owner]
+        })
+            .then(function (data) {
+                var hbsObject = {
+                    dogs: data
+                }
+                console.log("checkinout obj", hbsObject)
+                res.render("checkinout", hbsObject)
+            })
+    })
+    
+    //api to check printout
+    app.get("/api/checkinout", function (req, res) {
+        db.Dog.findAll({
+            include: [db.Owner]
+        })
+        .then(function (dbDog) {
+            console.log("dbdog", dbDog)
+            res.json(dbDog)
+            })
+    })
+=======
         db.Dog.findAll({
             include: [db.Owner]
         })
@@ -45,6 +104,7 @@ module.exports = function (app) {
             })
     })
 
+
     //put route that updates checkin status of dog at input id. Can be used for check in or out
     app.put("/api/dogs/:id", function (req, res) {
         console.log("test?", req.body);
@@ -74,19 +134,19 @@ module.exports = function (app) {
         });
     });
 
-        //who knows man
-        app.get("/adddogtoowner", function (req, res) {
-            db.Owner.findAll({
-                limit: 1,
-                order: [
-                    ['createdAt', 'DESC']
-                ]
-            }).then(function (data) {
-                var hbsObject = {
-                    owners: data
-                }
-                console.log("owners", data)
-                res.render("adddogtoowner", hbsObject)
-            })
+    //who knows man
+    app.get("/adddogtoowner", function (req, res) {
+        db.Owner.findAll({
+            limit: 1,
+            order: [
+                ['createdAt', 'DESC']
+            ]
+        }).then(function (data) {
+            var hbsObject = {
+                owners: data
+            }
+            console.log("owners", data)
+            res.render("adddogtoowner", hbsObject)
         })
+    })
 }
