@@ -11,10 +11,10 @@ module.exports = function(app) {
             .then(function(data) {
                 console.log("data:", data[0]["dataValues"]["DogId"])
                 var hbsObject = {
-                    activities: data
-                    // dogid: dogId
-                }
-                // console.log(hbsObject)
+                        activities: data
+                            // dogid: dogId
+                    }
+                    // console.log(hbsObject)
                 res.render("activities", hbsObject)
             })
     })
@@ -60,7 +60,7 @@ module.exports = function(app) {
             late_walk: req.body.late_walk
         }, {
             where: {
-                id: req.params.id
+                DogId: req.params.id
             }
         }).then(function(dbPost) {
             res.json(dbPost);
