@@ -1,6 +1,6 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
-    $(".addOwner").on("submit", function (event) {
+    $(".addOwner").on("submit", function(event) {
         event.preventDefault()
         $(".addDogToOwner").removeClass("invisible")
         const ownerPhone = $("#owner_phone").val().trim() + "-" + $("#owner_phone2").val().trim() + "-" + $("#owner_phone3").val().trim()
@@ -17,8 +17,8 @@ $(document).ready(function () {
             type: "POST",
             data: newOwner
         }).then(
-            function (res) {
-                // location.href = "/"
+            function(res) {
+                location.href = "/index"
             })
     })
 
@@ -28,4 +28,3 @@ $(document).ready(function () {
 
 
 })
-
