@@ -1,65 +1,10 @@
 var path = require("path");
 var db = require("../models");
-var isAuthenticated = require("../config/middleware/isAuthenticated");
+var authController = require('../controllers/authcontroller.js');
 
 // Routes
 // =============================================================
 module.exports = function (app) {
-    // at root, check if logged in. If logged in, redirect to index, if not redirect to login
-    app.get("/", function (req, res) {
-        // If the user already has an account send them to the members page
-        if (req.user) {
-            res.redirect("/index");
-        }
-        res.redirect("/login");
-    });
-    //at login, check if logged in. If logged in, redirect to index, if not, render login page
-    app.get("/login", function (req, res) {
-        // If the user already has an account send them to the members page
-        if (req.user) {
-            res.redirect("/index");
-        }
-        res.render("../views/login.handlebars");
-    });
-    //at register, check if logged in. Redirect to index if logged in, otherwise render register view
-    app.get("/register", function (req, res) {
-        // If the user already has an account send them to the members page
-        if (req.user) {
-            res.redirect("/index");
-        }
-        res.render("../views/register.handlebars");
-    });
-
-    // Here we've add our isAuthenticated middleware to this route.
-    // If a user who is not logged in tries to access this route they will be redirected to the signup page
-
-    app.get("/index", isAuthenticated, function (req, res) {
-        db.Dog.findAll({
-            include: [db.Owner]
-        })
-            .then(function (data) {
-                var hbsObject = {
-                    dogs: data
-                }
-                res.render("index", hbsObject)
-            })
-    })
-
-
-    //added route to get around having to login for testing purposes
-
-    app.get("/admin", function (req, res) {
-        db.Dog.findAll({
-            include: [db.Owner]
-        })
-            .then(function (data) {
-                var hbsObject = {
-                    dogs: data
-                }
-                res.render("index", hbsObject)
-            })
-    })
-
     //at addowner, render addowner
     app.get("/addowner", function (req, res) {
         res.render("addowner")
@@ -81,4 +26,50 @@ module.exports = function (app) {
                 res.render("adddog", hbsObject)
             })
     })
+}
+
+module.exports = function(app, passport) {
+
+
+    app.get('/register', authController.register);
+
+
+    app.get('/login', authController.login);
+
+
+    app.post('/register', passport.authenticate('local-signup', {
+            successRedirect: '/index',
+
+            failureRedirect: '/register'
+        }
+
+    ));
+
+
+    app.get('/index', isLoggedIn, authController.index);
+
+
+
+    app.get('/logout', authController.logout);
+
+
+    app.post('/login', passport.authenticate('local-signin', {
+            successRedirect: '/index',
+
+            failureRedirect: '/login'
+        }
+
+    ));
+
+
+    function isLoggedIn(req, res, next) {
+
+        if (req.isAuthenticated())
+
+            return next();
+
+        res.redirect('/login');
+
+    }
+
 }

@@ -1,6 +1,6 @@
 {{!-- login screen needs two updates. #1 passport or decrypt for authentication and
 # The passport or decrypt library will need handlebars and a js file --}}
-<form>
+{{!-- <form>
   <div class="container" id="contain">
     <div class="form-group">
       <img src="assets/img/basketpuppy1.jpg" class="puppy-logo">
@@ -11,7 +11,15 @@
       <input type="password" class="form-control" id="password" placeholder="Password"><br>
       <button type="submit" class="btn btn-primary sign in">Sign In</button>
       <button type="submit" class="btn btn-primary register">Register</button>
-</form>
+</form> --}}
+
+<form id="signin" name="signin" method="post" action="/login">
+        <label for="email">Email Address</label>
+        <input class="text" name="email" type="text" />
+        <label for="password">Password</label>
+        <input name="password" type="password" />
+        <input class="btn" type="submit" value="Sign In" />
+    </form>
 
 <style>
   form {
