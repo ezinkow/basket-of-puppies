@@ -58,7 +58,6 @@ $(document).ready(function () {
 
     function deleteDog() {
         var id = $(this).data("id");
-        console.log("iddd", id)
         const dogToDelete = {
             DogId: id
         }
