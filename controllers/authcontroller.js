@@ -6,7 +6,7 @@ exports.register = function(req, res) {
 
 }
 
-exports.homepage =function(req, res) {
+exports.homepage = function(req, res) {
 
     res.render('login.handlebars');
 }
@@ -27,7 +27,7 @@ exports.logout = function(req, res) {
 
     req.session.destroy(function(err) {
 
-        res.redirect('login.handlebars');
+        res.redirect('login');
 
     });
 
