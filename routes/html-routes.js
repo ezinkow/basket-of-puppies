@@ -4,32 +4,22 @@ var authController = require('../controllers/authcontroller.js');
 
 // Routes
 // =============================================================
-module.exports = function (app) {
+module.exports = function(app, passport) {
     //at addowner, render addowner
-    app.get("/addowner", function (req, res) {
+    app.get("/addowner", function(req, res) {
         res.render("addowner")
     })
 
-    //at daycare, render daycare
-    app.get("/daycare", function (req, res) {
-        res.render("daycare")
-    })
-
-
     //at adddog query database for all owners, then render dog view + data
-    app.get("/adddog", function (req, res) {
+    app.get("/adddog", function(req, res) {
         db.Owner.findAll({})
-            .then(function (data) {
+            .then(function(data) {
                 var hbsObject = {
                     owners: data
                 }
                 res.render("adddog", hbsObject)
             })
     })
-}
-
-module.exports = function(app, passport) {
-
 
     app.get('/register', authController.register);
 
