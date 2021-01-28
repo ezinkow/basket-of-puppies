@@ -24,7 +24,7 @@ $(document).ready(function () {
     $(".weatherBtn").on("click", function displayWeather() {
         $("#weather").removeClass("hide")
         $("#weather").html("")
-        var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=Chicago&units=imperial&appid=da5a0b2df3ad3a18dae3207cc7ca31bf";
+        var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=Chicago&units=imperial&appid=da5a0b2df3ad3a18dae3207cc7ca31bf";
         $.ajax({
             url: queryURL,
             method: "GET"

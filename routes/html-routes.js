@@ -4,16 +4,16 @@ var authController = require('../controllers/authcontroller.js');
 
 // Routes
 // =============================================================
-module.exports = function(app, passport) {
+module.exports = function (app, passport) {
     //at addowner, render addowner
-    app.get("/addowner", function(req, res) {
+    app.get("/addowner", function (req, res) {
         res.render("addowner")
     })
 
     //at adddog query database for all owners, then render dog view + data
-    app.get("/adddog", function(req, res) {
+    app.get("/adddog", function (req, res) {
         db.Owner.findAll({})
-            .then(function(data) {
+            .then(function (data) {
                 var hbsObject = {
                     owners: data
                 }
@@ -24,15 +24,21 @@ module.exports = function(app, passport) {
     app.get('/register', authController.register);
 
 
-    app.get('/', authController.login);
+    app.get('/', passport.authenticate('local-signup', {
+        successRedirect: '/index',
+
+        failureRedirect: '/login'
+    }
+
+    ));
 
     app.get('/login', authController.homepage)
 
     app.post('/register', passport.authenticate('local-signup', {
-            successRedirect: '/login',
+        successRedirect: '/login',
 
-            failureRedirect: '/register'
-        }
+        failureRedirect: '/register'
+    }
 
     ));
 
@@ -43,8 +49,8 @@ module.exports = function(app, passport) {
         })
             .then(function (data) {
                 var hbsObject = {
-                        activities: data
-                    }
+                    activities: data
+                }
                 res.render("index", hbsObject)
             })
     })
@@ -54,10 +60,10 @@ module.exports = function(app, passport) {
 
 
     app.post('/login', passport.authenticate('local-signin', {
-            successRedirect: '/index',
+        successRedirect: '/index',
 
-            failureRedirect: '/login'
-        }
+        failureRedirect: '/login'
+    }
 
     ));
 
