@@ -43,7 +43,7 @@ module.exports = function(app, passport) {
     ));
 
 
-    app.get('/index', isLoggedIn, authController.index, function(req, res) {
+    app.get('/index', function(req, res) {
         db.Activity.findAll({
                 include: [db.Dog]
             })
