@@ -19,30 +19,30 @@
 
                                 <label for="alt pickup">Name of alternate pickup person:</label><br>
                                 <input type="textarea" id="alt_pickup_name" name="alt_pickup_name"><br></br>
-                                <input type="submit" value="Add Owner!" class="btn btn-info"><br><br>
+                                <input type="submit" value="Add Owner!" class="btn btn-info submitOwner"><br><br>
                                 <button class="invisible btn btn-primary addDogToOwner">Add a dog for this
                                         owner</button>
-                        </form>
-                        <br>
-
+                        </form><br>
                 </div>
-
-                {{!-- <div class="col-7">
-                        <img class="mb-4" src="/assets/img/basketlogo1.png" alt="puppy">
-                </div> --}}
         </div>
 </div>
 
+<script>
+        $('.submitOwner').click(function () {
+                // show when the button is clicked
+                toastr.success("Owner successfully added")
+        })
+</script>
 <style>
         body {
-               background-image: url("/assets/img/basketlogo1.png");
+                background-image: url("/assets/img/basketlogo1.png");
         }
 
         form {
                 background: rgb(32, 48, 111, 0.4);
                 padding: 30px;
                 border-radius: 30px;
-                font-weight: 500;                
+                font-weight: 500;
         }
 
         label {
@@ -51,5 +51,4 @@
                 padding-left: 10px;
                 padding-right: 10px;
         }
-
 </style>

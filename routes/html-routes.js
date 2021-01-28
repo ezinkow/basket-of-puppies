@@ -37,8 +37,17 @@ module.exports = function(app, passport) {
     ));
 
 
-    app.get('/index', isLoggedIn, authController.index);
-
+    app.get('/index', isLoggedIn, authController.index, function (req, res) {
+        db.Activity.findAll({
+            include: [db.Dog]
+        })
+            .then(function (data) {
+                var hbsObject = {
+                        activities: data
+                    }
+                res.render("index", hbsObject)
+            })
+    })
 
 
     app.get('/logout', authController.logout);

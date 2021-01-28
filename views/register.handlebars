@@ -1,11 +1,38 @@
-<form id="register" name="register" method="post" action="/register">
-    <label for="email">Email Address</label>
-    <input class="text" name="email" type="email" />
-    <label for="firstname">Firstname</label>
-    <input name="firstname" type="text" />
-    <label for="lastname">Lastname</label>
-    <input name="lastname" type="text" />
-    <label for="password">Password</label>
-    <input name="password" type="password" />
-    <input class="btn" type="submit" value="Complete" />
-</form>
+<div class="container">
+    <div class="row">
+        <div class="col-5">
+            <form id="register" name="register" method="post" action="/register">
+                <label for="email">Email Address</label><br>
+                <input class="text" name="email" type="email" /><br><br>
+                <label for="firstname">Firstname</label><br>
+                <input name="firstname" type="text" /><br><br>
+                <label for="lastname">Lastname</label><br>
+                <input name="lastname" type="text" /><br><br>
+                <label for="password">Password</label><br>
+                <input name="password" type="password" /><br><br>
+                <input class="btn btn-primary" type="submit" value="Complete" /><br>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background-image: url("/assets/img/basketlogo1.png");
+    }
+
+    form {
+        background: rgb(32, 48, 111, 0.4);
+        padding: 30px;
+        border-radius: 30px;
+        font-weight: 500;
+        margin-top: 20px;
+    }
+
+    label {
+        background: lightgray;
+        border-radius: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+</style>
