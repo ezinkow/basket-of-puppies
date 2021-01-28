@@ -8,6 +8,8 @@ There is a page to view all the owner information, as well as one for the dog in
 -Toastr is used for pop up messages
 -Handlebars was implemented for the HTML handling
 -Sequelize and MySQL2 handle the database information
+-Moment.js for the date and time
+-AJAX call to OpenWeatherMap for the weather info
 
 # User Story
 As an employee of a doggie day care, I would like an easy way to confidentially log in and store information pertaining to the clients and pets, keeping track of their activities on a daily basis.
