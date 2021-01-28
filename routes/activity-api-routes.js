@@ -12,9 +12,7 @@ module.exports = function (app) {
                 var hbsObject = {
 
                         activities: data
-                            // dogid: dogId
                     }
-                    // console.log(hbsObject)
 
                 res.render("activities", hbsObject)
             })
@@ -61,7 +59,7 @@ module.exports = function (app) {
             late_walk: req.body.late_walk
         }, {
             where: {
-                DogId: req.params.id
+                id: req.params.id
             }
         }).then(function (dbPost) {
             res.json(dbPost);

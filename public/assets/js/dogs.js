@@ -25,8 +25,11 @@ $(document).ready(function () {
                 type: "POST",
                 data: newActivityRow
             })
-        );
+        )
+        .then(
+            location.reload())
     }
+
     //does a put request 
     function checkOutDog() {
         var id = $(this).data("id");
@@ -48,27 +51,25 @@ $(document).ready(function () {
                 type: "DELETE",
                 data: activityRowToDelete
             })
-        );
+        )
+        .then(
+            location.reload())
     }
 
     function deleteDog() {
         var id = $(this).data("id");
-
-        const activityRowToDelete = {
+        console.log("iddd", id)
+        const dogToDelete = {
             DogId: id
         }
-        
-        var id = $(this).data("id");
+
         $.ajax("/api/dogs/" + id, {
             method: "DELETE",
             data: {
                 id
             }
-        }).then(
-            $.ajax("/api/activities/" + id, {
-                type: "DELETE",
-                data: activityRowToDelete
-            })
-        );
+        })
+        .then(
+           location.reload())
     }
 })

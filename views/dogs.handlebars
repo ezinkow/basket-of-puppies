@@ -8,6 +8,7 @@
                 <div class="grid-header">Meds?</div>
                 <div class="grid-header">Shots Records?</div>
                 <div class="grid-header">Notes</div>
+                <div class="grid-header">Checked in?</div>
                 <div class="grid-header">Check-in</div>
                 <div class="grid-header">Check-out</div>
                 <div class="grid-header">Delete</div>
@@ -17,6 +18,7 @@
                 <div class="grid-item">{{meds}}</div>
                 <div class="grid-item">{{shots}}</div>
                 <div class="grid-item">{{notes}}</div>
+                <div class="grid-item">{{check_in}}</div>
                 <button type="button" class="grid-item btn btn-success text-dark checkIn" data-id="{{id}}" data-check_in="{{check_in}}">Check In</button>
                 <button type="button" class="grid-item btn btn-primary text-dark checkOut" data-id="{{id}}" data-check_out="{{check_out}}">Check Out</button>
                 <button class="grid-item btn btn-danger text-dark deleteDog" data-id="{{id}}"
@@ -46,7 +48,7 @@
     .grid-container {
         display: grid;
         margin-top: 30px;
-        grid-template-columns: auto auto auto auto auto auto auto auto;
+        grid-template-columns: auto auto auto auto auto auto auto auto auto;
         background-color: lightgray;
     }
 
