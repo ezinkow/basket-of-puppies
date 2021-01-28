@@ -31,10 +31,10 @@ module.exports = function (app) {
 module.exports = function(app, passport) {
 
 
-    app.get('/register', authController.signup);
+    app.get('/register', authController.register);
 
 
-    app.get('/login', authController.signin);
+    app.get('/login', authController.login);
 
 
     app.post('/register', passport.authenticate('local-signup', {
@@ -46,7 +46,7 @@ module.exports = function(app, passport) {
     ));
 
 
-    app.get('/index', isLoggedIn, authController.dashboard);
+    app.get('/index', isLoggedIn, authController.index);
 
 
 
