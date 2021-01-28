@@ -45,24 +45,19 @@
             <div class="grid-container">
                 <div class="grid-header">Dog Name</div>
                 <div class="grid-header">Morning Walk</div>
-                <div class="grid-header">Noon Walk</div>
+                <div class="grid-header">Midday Walk</div>
                 <div class="grid-header">Late Walk</div>
                 <div class="grid-header">Meds?</div>
                 <div class="grid-header">Notes</div>
 
 
-                {{#each dogs}}
-                {{#if check_in}}
+                {{#each activities}}
                 <div class="grid-item">{{dog_name}}</div>
-                <div class="grid-item">{{Owner.owner_first_name}}</div>
-                <div class="grid-item">{{Owner.owner_last_name}}</div>
-
                 <div class="grid-item">{{morning_walk}}</div>
                 <div class="grid-item">{{midday_walk}}</div>
                 <div class="grid-item">{{late_walk}}</div>
                 <div class="grid-item">{{Dog.meds}}</div>
                 <div class="grid-item">{{Dog.notes}}</div>
-                {{/if}}
                 {{/each}}
             </div>
         </div>
