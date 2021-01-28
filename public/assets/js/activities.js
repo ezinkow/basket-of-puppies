@@ -17,7 +17,6 @@ $(document).ready(function() {
         let i = 0
 
         morningWalkCheckboxes.forEach((checkbox) => {
-
             var id = dogIds[i].getAttribute("value")
             console.log("id", id)
 
@@ -27,6 +26,7 @@ $(document).ready(function() {
                 late_walk: lateWalkCheckboxes[i].checked,
                 DogId: dogIds[i].getAttribute("value"),
             }
+            console.log("update", updateActivities)
 
             $.ajax("/api/activities/" + id, {
                 type: "PUT",

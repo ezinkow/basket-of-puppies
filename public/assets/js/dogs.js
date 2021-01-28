@@ -25,8 +25,11 @@ $(document).ready(function () {
                 type: "POST",
                 data: newActivityRow
             })
-        );
+        )
+        .then(
+            location.reload())
     }
+
     //does a put request 
     function checkOutDog() {
         var id = $(this).data("id");
@@ -48,7 +51,9 @@ $(document).ready(function () {
                 type: "DELETE",
                 data: activityRowToDelete
             })
-        );
+        )
+        .then(
+            location.reload())
     }
 
     function deleteDog() {
@@ -69,6 +74,8 @@ $(document).ready(function () {
                 type: "DELETE",
                 data: activityRowToDelete
             })
-        );
+        )
+        .then(
+           console.log("delete btn"))
     }
 })
