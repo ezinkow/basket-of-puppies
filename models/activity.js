@@ -16,13 +16,6 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.BOOLEAN,
             defaultValue: false,
         },
-        // med_info: {
-        //     type: DataTypes.STRING,
-
-        // },
-        // notes: {
-        //     type: DataTypes.STRING
-        // }
     });
 
     Activity.associate = function (models) {
@@ -30,7 +23,7 @@ module.exports = function (sequelize, DataTypes) {
         // An Activity can't be added without a Dog due to the foreign key constraint
         Activity.belongsTo(models.Dog, {
             foreignKey: {
-                allowNull: false
+                allowNull: false,
             }
         });
     };

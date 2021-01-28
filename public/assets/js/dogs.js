@@ -58,24 +58,18 @@ $(document).ready(function () {
 
     function deleteDog() {
         var id = $(this).data("id");
-
-        const activityRowToDelete = {
+        console.log("iddd", id)
+        const dogToDelete = {
             DogId: id
         }
-        
-        var id = $(this).data("id");
+
         $.ajax("/api/dogs/" + id, {
             method: "DELETE",
             data: {
                 id
             }
-        }).then(
-            $.ajax("/api/activities/" + id, {
-                type: "DELETE",
-                data: activityRowToDelete
-            })
-        )
+        })
         .then(
-           console.log("delete btn"))
+           location.reload())
     }
 })

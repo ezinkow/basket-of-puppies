@@ -12,9 +12,7 @@ module.exports = function (app) {
                 var hbsObject = {
 
                         activities: data
-                            // dogid: dogId
                     }
-                    // console.log(hbsObject)
 
                 res.render("activities", hbsObject)
             })
