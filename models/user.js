@@ -18,11 +18,6 @@ module.exports = function(sequelize, DataTypes) {
             notEmpty: true,
             allowNull: false
         },
-
-        username: {
-            type: DataTypes.TEXT,
-        },
-
         email: {
             type: DataTypes.STRING,
             validate: {
