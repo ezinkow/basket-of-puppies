@@ -32,17 +32,6 @@ passport.deserializeUser(function(id, done) {
     });
 
 });
-// passport.deserializeUser(function(id, done) {
-//     User.findById(id, function(err, user) {
-//       done(err, user);
-//     });
-//   });
-
-// passport.deserializeUser(function(id, done) {
-//     connection.query("select * from users where id = "+id,function(err,rows){	
-//         done(err, rows[0]);
-//     });
-// });
 
     passport.use('local-signup', new LocalStrategy(
 

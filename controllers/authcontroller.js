@@ -6,10 +6,10 @@ exports.register = function(req, res) {
 
 }
 
-// exports.homepage =function(req, res) {
+exports.homepage =function(req, res) {
 
-//     res.render('login');
-// }
+    res.render('login.handlebars');
+}
 
 exports.login = function(req, res) {
 
