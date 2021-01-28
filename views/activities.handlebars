@@ -14,7 +14,6 @@
     </div>
     <div class="grid-header">Meds?</div>
     <div class="grid-header">Notes</div>
-    <div class="grid-header">Check out</div>
 
 
     {{#each activities}}
@@ -33,9 +32,6 @@
     <div class="grid-item"><textarea class="notes" name="notes" style="width:100%;height:100%"
             placeholder="{{Dog.notes}}"></textarea>
     </div>
-    <button type="button" class="grid-item btn btn-primary text-dark checkOut" data-id="{{id}}"
-        data-check_out="{{check_out}}">Check Out</button>
-    <div value={{id}} class="dogId" style="display:none"></div>
     {{/each}}
 
 </form>
@@ -104,11 +100,6 @@
         }
     });
 
-    $('.checkOut').click(function () {
-        // show when the button is clicked
-        toastr.success("Successfully checked out")
-    })
-
 </script>
 
 <style>
@@ -119,7 +110,7 @@
     .activities {
         display: grid;
         margin-top: 30px;
-        grid-template-columns: auto auto auto auto auto auto auto;
+        grid-template-columns: auto auto auto auto auto auto;
         background-color: lightgray;
         padding: 10px;
         margin-left: 30px;

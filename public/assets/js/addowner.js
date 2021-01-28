@@ -18,7 +18,7 @@ $(document).ready(function () {
             data: newOwner
         }).then(
             function (res) {
-                location.href = "/"
+                // location.href = "/"
             })
     })
 

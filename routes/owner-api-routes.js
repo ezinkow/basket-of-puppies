@@ -8,7 +8,7 @@ module.exports = function (app) {
 
 
 
-    //finds all owners. Where does this get called?
+    //finds all owners, displays as Json
     app.get("/api/owners/", function (req, res) {
         db.Owner.findAll({
             order: [
@@ -17,7 +17,6 @@ module.exports = function (app) {
         })
             .then(function (dbOwner) {
                 res.json(dbOwner)
-                console.log(dbOwner)
             })
 
     })
@@ -76,7 +75,6 @@ module.exports = function (app) {
         })
             .then(function (dbOwner) {
                 res.json(dbOwner)
-                console.log(dbOwner)
             })
 
     })

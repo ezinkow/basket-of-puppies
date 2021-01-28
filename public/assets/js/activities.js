@@ -16,11 +16,11 @@ $(document).ready(function() {
         let values = [];
         let i = 0
 
-        console.log(Array.from(morningWalkCheckboxes[1]))
-
         morningWalkCheckboxes.forEach((checkbox) => {
+
             var id = dogIds[i].getAttribute("value")
             console.log("id", id)
+
             const updateActivities = {
                 morning_walk: checkbox.checked,
                 midday_walk: middayWalkCheckboxes[i].checked,
@@ -37,6 +37,5 @@ $(document).ready(function() {
         return values
 
     }
-
 
 })

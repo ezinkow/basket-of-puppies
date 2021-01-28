@@ -41,7 +41,6 @@ module.exports = function (app) {
                 var hbsObject = {
                     dogs: data
                 }
-                console.log(hbsObject)
                 res.render("index", hbsObject)
             })
     })
@@ -57,7 +56,6 @@ module.exports = function (app) {
                 var hbsObject = {
                     dogs: data
                 }
-                console.log(hbsObject)
                 res.render("index", hbsObject)
             })
     })
@@ -80,7 +78,6 @@ module.exports = function (app) {
                 var hbsObject = {
                     owners: data
                 }
-                console.log(hbsObject)
                 res.render("adddog", hbsObject)
             })
     })
