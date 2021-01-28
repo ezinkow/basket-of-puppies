@@ -3,7 +3,7 @@ $(document).ready(function() {
         event.preventDefault();
         location.href = "/adddog"
     })
-    
+
     $(".addDogToOwner").on("click", function(event) {
         event.preventDefault();
         location.href = "/addDogToOwner"
@@ -42,8 +42,8 @@ $(document).ready(function() {
     })
     $(".complete").on("click", function(event) {
         event.preventDefault();
-        location.href = "/"
+        location.href = "/index"
     })
 
-    
+
 });

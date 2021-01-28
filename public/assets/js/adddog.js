@@ -18,7 +18,7 @@ $(document).ready(function() {
             data: newDog
         }).then(
             function(res) {
-                location.href = "/"
+                location.href = "/index"
             })
     })
 
@@ -39,7 +39,7 @@ $(document).ready(function() {
             data: newDog
         }).then(
             function(res) {
-                location.href = "/"
+                location.href = "/index"
             })
     })
 
