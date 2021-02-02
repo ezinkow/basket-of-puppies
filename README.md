@@ -16,9 +16,8 @@ As an employee of a doggie day care, I would like an easy way to confidentially 
 
 # Screencaps
 
-<img width="1440" alt="Screen Shot 2021-01-27 at 5 00 49 PM" src="https://user-images.githubusercontent.com/67984998/106065763-5c64da00-60c1-11eb-96b8-f0064f2b7e67.png"
-
-<img width="1440" alt="Screen Shot 2021-01-27 at 5 01 13 PM" src="https://user-images.githubusercontent.com/67984998/106065775-5ff86100-60c1-11eb-9997-a08de78d6e3b.png">
+![image](https://user-images.githubusercontent.com/71417500/106631690-97905e80-6542-11eb-8929-1930f301dba0.png)
+![image](https://user-images.githubusercontent.com/71417500/106631776-b2fb6980-6542-11eb-859b-8960dcfa8bdd.png)
 
 # Deployed Website
 https://basket-of-puppies.herokuapp.com/
